@@ -12,7 +12,7 @@ SoftwareSerial BTSerial(BT_RX, BT_TX);
 
 void startUpPrint()
 {
-    for(int i = 0; i < 7; i++)
+    for(int i = 0; i < 8; i++)
     {
         if(i == 0)
         {
@@ -31,20 +31,25 @@ void startUpPrint()
         }
         else if(i == 3)
         {
-            Serial.print("\nBT CMODE: ");
-            BTSerial.println("AT+CMODE?");
+            Serial.print("\nBT CLASS: ");
+            BTSerial.println("AT+CLASS?");
         }
         else if(i == 4)
         {
-            Serial.print("\nBT ROLE: ");
-            BTSerial.println("AT+ROLE=1");
+            Serial.print("\nBT CMODE: ");
+            BTSerial.println("AT+CMODE=1");
         }
         else if(i == 5)
+        {
+            Serial.print("\nBT ROLE: ");
+            BTSerial.println("AT+ROLE=0");
+        }
+        else if(i == 6)
         {
             Serial.print("BT INQM: ");
             BTSerial.println("AT+INQM=1,90,5");
         }
-        else if(i == 6)
+        else if(i == 7)
         {
             Serial.print("\nBT INIT: ");
             BTSerial.println("AT+INIT");
