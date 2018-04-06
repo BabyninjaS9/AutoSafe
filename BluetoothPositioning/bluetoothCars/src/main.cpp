@@ -1,3 +1,4 @@
+
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 #include <string.h>
@@ -22,17 +23,16 @@ void startUpPrint()
         else if(i == 1)
         {
             Serial.print("\nBT NAME: ");
-            BTSerial.println("AT+NAME?");
+            BTSerial.println("AT+NAME=Car1");
         }
         else if(i == 2)
         {
             Serial.print("\nBT LAST CONNECTED: ");
             BTSerial.println("AT+MRAD?");
         }
-        else if(i == 3)
-        {
-            Serial.print("\nBT CLASS: ");
-            BTSerial.println("AT+CLASS?");
+        else if(i == 3){
+            Serial.println("\nBT CLASS: ");
+            BTSerial.println("AT+CLASS=0x808");
         }
         else if(i == 4)
         {
@@ -42,12 +42,12 @@ void startUpPrint()
         else if(i == 5)
         {
             Serial.print("\nBT ROLE: ");
-            BTSerial.println("AT+ROLE=0");
+            BTSerial.println("AT+ROLE=1");
         }
         else if(i == 6)
         {
             Serial.print("BT INQM: ");
-            BTSerial.println("AT+INQM=1,90,5");
+            BTSerial.println("AT+INQM=1,90,48");
         }
         else if(i == 7)
         {
@@ -72,6 +72,11 @@ void searchDevices()
 
 }
 
+double calculateDistance(int rssi) {
+
+    return -1764 * log(rssi) + 9518.6;
+}
+
 void setup()
 {
     Serial.begin(9600);
@@ -91,12 +96,34 @@ void loop()
             char c = (char)BTSerial.read();
             if(c == '\n')
             {
-                Serial.println(woord);
-                String hexString = woord.substring(woord.lastIndexOf(',') + 1);
+
+                String address = woord.substring(woord.indexOf(':') + 1, woord.indexOf(','));
+
+                String deviceClass = woord.substring(woord.indexOf(',') + 1, woord.lastIndexOf(','));
+
+                String hexString = woord.substring(woord.lastIndexOf(',') + 3);
+
                 char* hex_p = &hexString[0];
-                long distanceValue = strtol(hex_p, NULL , 16);
-                Serial.print("RSSI: ");
-                Serial.println(distanceValue);
+                long rssi = strtol(hex_p, NULL , 16);
+
+                if(deviceClass == "16"){
+                    Serial.println(woord);
+                    /*
+                       Serial.print("Address: ");
+                       Serial.println(address);
+                       Serial.print("Device class: ");
+                       Serial.println(deviceClass);*/
+                    Serial.print("RSSI: ");
+                    Serial.print(rssi);
+
+                    Serial.print(" | cm: ");
+                    Serial.println(calculateDistance(rssi));
+
+                    //double distance = calculateDistance(5, (double)rssi);
+                    //Serial.print("Meters: ");
+                    //Serial.println((String)distance);
+                }
+
                 woord = "";
             }
             else
@@ -106,12 +133,9 @@ void loop()
 
             if(woord == "OK")
             {
-                addSearch = false;
-                Serial.println("Done looping");
+                BTSerial.println("AT+INQ");
             }
         }
-        //24df:6a:e5d1bb
-        //Serial.println("Out of while");
     }
 
     if(addSearch == false)
@@ -128,3 +152,4 @@ void loop()
     }
 
 }
+
