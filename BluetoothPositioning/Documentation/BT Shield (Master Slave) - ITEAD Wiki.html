@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html dir="ltr" class="client-js" lang="nl"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script async="" src="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/load_002.php"></script><script async="" src="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/load.php"></script>
+<meta charset="UTF-8">
+<title>BT Shield (Master Slave) - ITEAD Wiki</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE">
+<meta name="generator" content="MediaWiki 1.23.1">
+<link rel="shortcut icon" href="https://www.itead.cc/favicon.ico">
+<link rel="search" type="application/opensearchdescription+xml" href="https://www.itead.cc/wiki/opensearch_desc.php" title="ITEAD Wiki (en)">
+<link rel="EditURI" type="application/rsd+xml" href="https://www.itead.cc/wiki/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="ITEAD Wiki Atom-feed" href="https://www.itead.cc/wiki/index.php?title=Special:RecentChanges&amp;feed=atom">
+<link rel="stylesheet" href="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/load_002.css">
+<style>
+.tipsy{padding:5px;position:absolute;z-index:100000;cursor:default}.tipsy-inner{padding:5px 8px 4px 8px; background-color:#ffffff;border:solid 1px #a7d7f9;color:black;max-width:15em;border-radius:4px;-moz-border-radius:4px;-webkit-border-radius:4px; }.tipsy-arrow{position:absolute;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALAgMAAADUwp+1AAAACVBMVEX5+fmn1/n///9s6BFKAAAAAXRSTlMAQObYZgAAACpJREFUCB1jZBD4wMiQMoeRcUU4I9uSaYxSE54xZjn8AtMgPkgcJA9UBwAeDw1Qrb3pVAAAAABJRU5ErkJggg==) no-repeat top left;background:url(https://www.itead.cc/wiki/resources/src/jquery.tipsy/images/tipsy.png?2014-06-05T06:58:20Z) no-repeat top left!ie;width:11px;height:6px} .tipsy-n .tipsy-arrow{top:0px;left:50%;margin-left:-5px} .tipsy-nw .tipsy-arrow{top:1px;left:10px} .tipsy-ne .tipsy-arrow{top:1px;right:10px} .tipsy-s .tipsy-arrow{bottom:0px;left:50%;margin-left:-5px;background-position:bottom left} .tipsy-sw .tipsy-arrow{bottom:0px;left:10px;background-position:bottom left} .tipsy-se .tipsy-arrow{bottom:0px;right:10px;background-position:bottom left} .tipsy-e .tipsy-arrow{top:50%;margin-top:-5px;right:1px;width:5px;height:11px;background-position:top right} .tipsy-w .tipsy-arrow{top:50%;margin-top:-5px;left:0px;width:6px;height:11px}
+/* cache key: wiki-mw_:resourceloader:filter:minify-css:7:483b931b1f89a95aac9aeb28742701a3 */
+.uls-menu a{cursor:pointer}.uls-menu.callout .caret-before{border-top:20px solid transparent;border-right:20px solid #C9C9C9;border-bottom:20px solid transparent;display:inline-block;left:-21px;top:30px;position:absolute}.uls-menu.callout .caret-after{border-top:20px solid transparent;border-right:20px solid #FCFCFC;border-bottom:20px solid transparent;display:inline-block;left:-20px;top:30px;position:absolute}.uls-ui-languages button{width:23%;text-overflow:ellipsis;margin-right:4%}button.uls-more-languages{width:auto}.settings-title{font-size:11pt}.settings-text{color:#555555;font-size:9pt}div.display-settings-block:hover .settings-text{color:#252525}
+/* cache key: wiki-mw_:resourceloader:filter:minify-css:7:22d1681fa868b4ff4fbcb1ec1e58a9ea */</style><style>
+.uls-trigger{background:transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAQCAMAAADQzfSkAAABqlBMVEX////f3/+Ov+/n5+fp6enp6eno6Ojp6enn5+ff39/q6urp6enp6enp6enq6urp6en////q6urr6+upv+rU1NTJycnR0dEaGhrp6enT4/SEuuK9vb3l5eU2ktCxsbFdXV1paWmzwc9ITFDo6OhaWlpsbGxtbW2BipSZpK/X19d2dnZ8hI2/v79PT09gZm2CgoLIyMjD0eGksL1JTVHM2+spKywnKCkcHBzAzt3I1+cxMzZxcXFkZGSvr69WW2C8vLyFjphqcXiLlZ8dHh4gISLa2trQ3/Dc3NzZ2dl7e3uioqIfHyBCRko9QEPh4eFgYGDGxsZoaGiPj4/Ly8uRm6a6yNcbGxuSnKfL2uqVn6scHR20tLR/f3+Kioq4uLienp54gIipqanA2e+71u9GSk5yeoKgoKCAgIB0dHRLS0tlZWWDg4PBwcHFxcWxvsxkanGapbCKlJ7O4fNXo9hQn9bM3/OPmaRfZWve3t6mpqbR0dG+vr6JiYnKyspPVFl1s99+fn5srdzm5ubNzc1BREh2s99xsN7S0tIxMzUiIyQ2OTt/iJFwcHBbYWc3S28lAAAAF3RSTlMACBAg7P3LiTYIX6LmmDzeAYMnDN+1MJx17ncAAAEQSURBVHheddBTb0VREIbhVduYWVuHRm3btm3bNv9zJ2v3IE36Xk3yZG4+xkMKw0BREYwJMzkcO38MY37tG6AmYN48YZFxwsbeiys6y/02rT1Wa4TxwoYgpx4adLMbfRubs9tk0cJuYK8ACv1/Xy5LLlIYS5bf2FTUUlJapptiqKwyuOfJEsjq4M3j+YBPYc02X6utTWnvQEwk6wJRNxn29Pb1D2iIg0bEJMaHYWTU6RyfABPZ5BTa7xBxxo2YzPgcPPGFRb4Ey2Qrq2vrXlRk6xampDK+a94/ODw6PjGfkp2dX1y6ZOvVNWKavsutqt6HbGZ5QCqdMUmSnlXqhY6M12CZtKcaUnhtsKz/Tc5m7AfjN0jzWIipawAAAABJRU5ErkJggg==) no-repeat scroll left center;background:transparent url(https://www.itead.cc/wiki/extensions/UniversalLanguageSelector/resources/css/../../lib/jquery.uls/images/icon-language.png?2013-11-27T05:26:40Z) no-repeat scroll left center!ie;background-image:-webkit-linear-gradient(transparent,transparent),url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjI3IiBoZWlnaHQ9IjE2Ij48cGF0aCBmaWxsPSIjRDNFM0Y0IiBkPSJNMCAwaDExLjg3NnYxNmgtMTEuODc2di0xNnoiLz48cGF0aCBmaWxsPSIjRTlFOUU5IiBkPSJNMTIuODE5IDB2MTUuOTY5aDEwLjc1NWMxLjA4NS0yLjU3OCAxLjgzNy00Ljk5MSAzLjA2Mi04LjU5MWwtMy4wNjItNy4zNzhoLTEwLjc1NXoiLz48cGF0aCBmaWxsPSIjNDM0MzQzIiBkPSJNMTQuODI4IDQuMTQ2Yy4zMi4wMjMuNjM5LjAzNS45NTEuMDM1LjQ3MSAwIC45MjItLjAxNiAxLjM1NC0uMDQ2bC4wMjMtLjI1OC4wMzQtLjM2Ny4wODEtLjcxMS4wMzMtLjMzMy44NzMuMDU4Yy0uMDczLjU3Ny0uMTMzIDEuMDkxLS4xNzkgMS41NDIgMS4xMTYtLjExOSAyLjIzMy0uMzMxIDMuMzQ5LS42MzdsLjA5Mi44MDljLTEuMDc4LjI3MS0yLjI1MS40NzItMy41MjEuNjAyLS4wNS40NjMtLjA4Mi45NjgtLjA5OCAxLjUxNC41MjQtLjE4NyAxLjE0LS4zMTMgMS44NDctLjM3OC4wNjQtLjIwNy4xMzYtLjQ2MS4yMTMtLjc2M2wuODY1LjIwMWMtLjAyNy4xMjMtLjA4OC4zMTUtLjE4NC41NzkuODE0LjEwNCAxLjQ2MS4zNCAxLjkzOC43MTEuNjgxLjU0MiAxLjAyMSAxLjI1MiAxLjAyMSAyLjEyOCAwIC45NjMtLjQwNiAxLjc0Ni0xLjIyMSAyLjM1MS0uNjM1LjQ3LTEuNTA1Ljc4NC0yLjYwOS45NGwtLjUwNS0uNzc5Yy45NjgtLjEwNCAxLjczOS0uMzM3IDIuMzE3LS43LjczMy0uNDU4IDEuMTAxLTEuMDY2IDEuMTAxLTEuODIzIDAtLjc3Mi0uMzQxLTEuMzYzLTEuMDIxLTEuNzcyLS4zNDUtLjIxLS43NjQtLjM0NC0xLjI1Ni0uNDAxLS42MDQgMS40MjItMS40IDIuNTk4LTIuMzg3IDMuNTI3LjAzNS4zNTIuMTAyLjcxNS4yMDEgMS4wOWwtLjg0OS4zMTQtLjEyNi0uNzczYy0uNjU0LjQ2Mi0xLjI3LjY5My0xLjg0Ny42OTMtLjY5NiAwLTEuMDQ0LS40MDctMS4wNDQtMS4yMjIgMC0xLjEwNC41OTEtMi4xMDMgMS43NzEtMi45OTMuMjI3LS4xNjUuNTMyLS4zNTIuOTE4LS41NjIuMDEyLS41MjQuMDQ2LTEuMTI4LjEwNC0xLjgxMi0uNTg1LjA0Ni0xLjE0My4wNjktMS42NzUuMDY5bC0uNDkzLS4wMTEtLjA3MS0uODIybTIuMTI3IDMuMzg0Yy0uMjY4LjE2MS0uNTQ1LjM5Mi0uODMxLjY5NC0uNjEyLjYxOS0uOTQgMS4yMjYtLjk4NiAxLjgxN2wtLjAxNy4xMjEuMDE3LjEzOGMwIC4yNTIuMTEyLjM3OC4zMzkuMzc4LjQ5MiAwIDEuMDItLjI1OCAxLjU4Mi0uNzczLS4wNTctLjYxMy0uMDkyLTEuNDA0LS4xMDQtMi4zNzVtMi40NTUtLjg4NGMtLjU3LjA4LTEuMTExLjIyNi0xLjYyMy40MzYgMCAuODgzLjAxOCAxLjU4MS4wNTIgMi4wOTMuNjM0LS43MDcgMS4xNTgtMS41NSAxLjU3MS0yLjUyOSIvPjxwYXRoIGZpbGw9IiMxQTFBMUEiIGQ9Ik04LjUxNyAxMS43MzVsLS43MzQtMi40MDloLTMuNjlsLS43MzQgMi40MDloLTIuMzEzbDMuNTczLTEwLjE2NWgyLjYyNWwzLjU4NyAxMC4xNjVoLTIuMzE0bS0xLjI0Ni00LjIxYy0uNjc5LTIuMTgzLTEuMDYyLTMuNDE4LTEuMTQ5LTMuNzA0LS4wODMtLjI4Ni0uMTQzLS41MTItLjE4LS42NzgtLjE1My41OS0uNTg5IDIuMDUxLTEuMzA5IDQuMzgyaDIuNjM4Ii8+PHBhdGggZmlsbD0iI0JDQkNCQyIgZD0iTTEyLjgxNyAxMy41djIuNWgxMC43NTdsLjk4LTIuNWgtMTEuNzM3eiIvPjxwYXRoIGZpbGw9IiMzNjkyRDAiIGQ9Ik0uMDExIDEzLjUxMWgzLjU2OWwyLjM2Ny0zLjExNiAyLjM2NyAzLjExNmgzLjU3djIuNDg0aC0xMS44NzN2LTIuNDg0eiIvPjwvc3ZnPg==);background-image:-webkit-linear-gradient(transparent,transparent),url(https://www.itead.cc/wiki/extensions/UniversalLanguageSelector/resources/css/../../lib/jquery.uls/images/icon-language.svg?2014-04-21T09:41:40Z)!ie;background-image:linear-gradient(transparent,transparent),url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjI3IiBoZWlnaHQ9IjE2Ij48cGF0aCBmaWxsPSIjRDNFM0Y0IiBkPSJNMCAwaDExLjg3NnYxNmgtMTEuODc2di0xNnoiLz48cGF0aCBmaWxsPSIjRTlFOUU5IiBkPSJNMTIuODE5IDB2MTUuOTY5aDEwLjc1NWMxLjA4NS0yLjU3OCAxLjgzNy00Ljk5MSAzLjA2Mi04LjU5MWwtMy4wNjItNy4zNzhoLTEwLjc1NXoiLz48cGF0aCBmaWxsPSIjNDM0MzQzIiBkPSJNMTQuODI4IDQuMTQ2Yy4zMi4wMjMuNjM5LjAzNS45NTEuMDM1LjQ3MSAwIC45MjItLjAxNiAxLjM1NC0uMDQ2bC4wMjMtLjI1OC4wMzQtLjM2Ny4wODEtLjcxMS4wMzMtLjMzMy44NzMuMDU4Yy0uMDczLjU3Ny0uMTMzIDEuMDkxLS4xNzkgMS41NDIgMS4xMTYtLjExOSAyLjIzMy0uMzMxIDMuMzQ5LS42MzdsLjA5Mi44MDljLTEuMDc4LjI3MS0yLjI1MS40NzItMy41MjEuNjAyLS4wNS40NjMtLjA4Mi45NjgtLjA5OCAxLjUxNC41MjQtLjE4NyAxLjE0LS4zMTMgMS44NDctLjM3OC4wNjQtLjIwNy4xMzYtLjQ2MS4yMTMtLjc2M2wuODY1LjIwMWMtLjAyNy4xMjMtLjA4OC4zMTUtLjE4NC41NzkuODE0LjEwNCAxLjQ2MS4zNCAxLjkzOC43MTEuNjgxLjU0MiAxLjAyMSAxLjI1MiAxLjAyMSAyLjEyOCAwIC45NjMtLjQwNiAxLjc0Ni0xLjIyMSAyLjM1MS0uNjM1LjQ3LTEuNTA1Ljc4NC0yLjYwOS45NGwtLjUwNS0uNzc5Yy45NjgtLjEwNCAxLjczOS0uMzM3IDIuMzE3LS43LjczMy0uNDU4IDEuMTAxLTEuMDY2IDEuMTAxLTEuODIzIDAtLjc3Mi0uMzQxLTEuMzYzLTEuMDIxLTEuNzcyLS4zNDUtLjIxLS43NjQtLjM0NC0xLjI1Ni0uNDAxLS42MDQgMS40MjItMS40IDIuNTk4LTIuMzg3IDMuNTI3LjAzNS4zNTIuMTAyLjcxNS4yMDEgMS4wOWwtLjg0OS4zMTQtLjEyNi0uNzczYy0uNjU0LjQ2Mi0xLjI3LjY5My0xLjg0Ny42OTMtLjY5NiAwLTEuMDQ0LS40MDctMS4wNDQtMS4yMjIgMC0xLjEwNC41OTEtMi4xMDMgMS43NzEtMi45OTMuMjI3LS4xNjUuNTMyLS4zNTIuOTE4LS41NjIuMDEyLS41MjQuMDQ2LTEuMTI4LjEwNC0xLjgxMi0uNTg1LjA0Ni0xLjE0My4wNjktMS42NzUuMDY5bC0uNDkzLS4wMTEtLjA3MS0uODIybTIuMTI3IDMuMzg0Yy0uMjY4LjE2MS0uNTQ1LjM5Mi0uODMxLjY5NC0uNjEyLjYxOS0uOTQgMS4yMjYtLjk4NiAxLjgxN2wtLjAxNy4xMjEuMDE3LjEzOGMwIC4yNTIuMTEyLjM3OC4zMzkuMzc4LjQ5MiAwIDEuMDItLjI1OCAxLjU4Mi0uNzczLS4wNTctLjYxMy0uMDkyLTEuNDA0LS4xMDQtMi4zNzVtMi40NTUtLjg4NGMtLjU3LjA4LTEuMTExLjIyNi0xLjYyMy40MzYgMCAuODgzLjAxOCAxLjU4MS4wNTIgMi4wOTMuNjM0LS43MDcgMS4xNTgtMS41NSAxLjU3MS0yLjUyOSIvPjxwYXRoIGZpbGw9IiMxQTFBMUEiIGQ9Ik04LjUxNyAxMS43MzVsLS43MzQtMi40MDloLTMuNjlsLS43MzQgMi40MDloLTIuMzEzbDMuNTczLTEwLjE2NWgyLjYyNWwzLjU4NyAxMC4xNjVoLTIuMzE0bS0xLjI0Ni00LjIxYy0uNjc5LTIuMTgzLTEuMDYyLTMuNDE4LTEuMTQ5LTMuNzA0LS4wODMtLjI4Ni0uMTQzLS41MTItLjE4LS42NzgtLjE1My41OS0uNTg5IDIuMDUxLTEuMzA5IDQuMzgyaDIuNjM4Ii8+PHBhdGggZmlsbD0iI0JDQkNCQyIgZD0iTTEyLjgxNyAxMy41djIuNWgxMC43NTdsLjk4LTIuNWgtMTEuNzM3eiIvPjxwYXRoIGZpbGw9IiMzNjkyRDAiIGQ9Ik0uMDExIDEzLjUxMWgzLjU2OWwyLjM2Ny0zLjExNiAyLjM2NyAzLjExNmgzLjU3djIuNDg0aC0xMS44NzN2LTIuNDg0eiIvPjwvc3ZnPg==);background-image:linear-gradient(transparent,transparent),url(https://www.itead.cc/wiki/extensions/UniversalLanguageSelector/resources/css/../../lib/jquery.uls/images/icon-language.svg?2014-04-21T09:41:40Z)!ie;padding-left:30px}#pt-uls a.uls-trigger{padding-left:30px; line-height:1}   x:-o-prefocus,body.rtl li#pt-uls{ direction:ltr}#uls-settings-block{border-top:1px solid #C9C9C9;background:#f8f8f8;background:-webkit-gradient(linear,left top,left bottom,from(#FBFBFB),to(#F0F0F0));background:-webkit-linear-gradient(top,#FBFBFB,#F0F0F0);background:-moz-linear-gradient(top,#FBFBFB,#F0F0F0);background:-o-linear-gradient(top,#FBFBFB,#F0F0F0);background:linear-gradient(#FBFBFB,#F0F0F0);padding-left:10px;line-height:1.2em;border-radius:0 0 5px 5px}#uls-settings-block div.display-settings-block,#uls-settings-block div.input-settings-block{display:inline-block;margin:8px 15px;color:#565656}#uls-settings-block div.display-settings-block:hover,#uls-settings-block div.input-settings-block:hover{color:#252525}
+/* cache key: wiki-mw_:resourceloader:filter:minify-css:7:40973a7e88ee17659d5e6b3d2164ee31 */
+.mw-collapsible-toggle{float:right;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none} caption .mw-collapsible-toggle{float:none} li .mw-collapsible-toggle{float:none} .mw-collapsible-toggle-li{list-style:none}
+/* cache key: wiki-mw_:resourceloader:filter:minify-css:7:6c1d24e90626cec584f0869483f983e7 */
+.suggestions{overflow:hidden;position:absolute;top:0;left:0;width:0;border:none;z-index:1099;padding:0;margin:-1px -1px 0 0} html > body .suggestions{margin:-1px 0 0 0}.suggestions-special{position:relative;background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0;margin-top:-2px;display:none;padding:0.25em 0.25em;line-height:1.25em}.suggestions-results{background-color:white;cursor:pointer;border:solid 1px #aaaaaa;padding:0;margin:0}.suggestions-result{color:black;margin:0;line-height:1.5em;padding:0.01em 0.25em;text-align:left; overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}.suggestions-result-current{background-color:#4C59A6;color:white}.suggestions-special .special-label{color:gray;text-align:left}.suggestions-special .special-query{color:black;font-style:italic;text-align:left}.suggestions-special .special-hover{background-color:silver}.suggestions-result-current .special-label,.suggestions-result-current .special-query{color:white}.highlight{font-weight:bold}
+/* cache key: wiki-mw_:resourceloader:filter:minify-css:7:9f9511aa4ef920d34591113e825e6a1e */
+.postedit-container{margin:0 auto;position:fixed;top:0;height:0;left:50%;z-index:1000;font-size:13px}.postedit-container:hover{cursor:pointer}.postedit{position:relative;top:0.6em;left:-50%;padding:.6em 3.6em .6em 1.1em;line-height:1.5625em;color:#626465;background-color:#f4f4f4;border:1px solid #dcd9d9;text-shadow:0 0.0625em 0 rgba(255,255,255,0.5);border-radius:5px;-webkit-box-shadow:0 2px 5px 0 #ccc;box-shadow:0 2px 5px 0 #ccc;-webkit-transition:all 0.25s ease-in-out;-moz-transition:all 0.25s ease-in-out;-ms-transition:all 0.25s ease-in-out;-o-transition:all 0.25s ease-in-out;transition:all 0.25s ease-in-out}.skin-monobook .postedit{top:6em !important}.postedit-faded{opacity:0}.postedit-icon{padding-left:41px;  line-height:25px;background-repeat:no-repeat;background-position:8px 50%}.postedit-icon-checkmark{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABblBMVEUAAAD///////9PfTf///80aRdTgjn///9Feij///////////9Rfzf///////////9PfjZRgDh1o1xOfTb///////+bwYqLtnj///////9PfTa82K////9WhT6YxIL///9QgDdTgzr////////j7uDl7eLq8efi693k7OH///////9UhjuBr2rp9uRUhjr///9YljVKgir///9WiTlYjT3////9/v57vFlbkT5PjC9dlD/5/fhuq09stUTs9uhxuElctCpfnT1huDFloEZloUZmpENmvDZpvDxpvTxqvjxrvT5rvT9rwTxsqktswD5uwkBvuUdxw0NztFBztU9ztVBzwkp0tlJ1xkd2t1R3uVR4w1F4xk54x014yE15uVZ5v1R5xVB6v1R7yFJ8wVh9xVl9yFR9yVd9ylN+xVh+yFd/x1l/yFeAylmEx1+Ny2uY0Hqe04Wj1Ymv3Ze33qLD47TJ5L3O6cPU7Mrq9eb2+/Q4j37OAAAAQHRSTlMAAQIEBAUFBQwPFB4fJCUoKiosQEhJS01RUlZZXmdydXaChYuSlJSWmJmoq6uur8LExcvM19fg5ejt8fX2+Pr7SljgewAAAKpJREFUGBkFwQNCAwAAAMDLtl3LtrG4rWXbtvX77gAgZ6grFwC0bhwNVgKgdPZx8b0dgLi+s7Wn0VoAqpfOI9+BNADZI7fLrz2pSEwGHZuH+78lSK8ZLkLezF3ooyUG3VPXq2USei9WngeyoG195yBYWDF3E/2pAhl1e9Gr8bGT+bfOFCC2fnvh4X7rcqIAQNNu+HT6sxkAjceTL/2ZAIhv+PorBwBJxfkA//dFHSCBy/UTAAAAAElFTkSuQmCC);background-image:url(https://www.itead.cc/wiki/resources/src/mediawiki.action/images/green-checkmark.png?2014-06-05T06:58:20Z)!ie;background-position:left}.postedit-close{position:absolute;padding:0 .8em;right:0;top:0;font-size:1.25em;font-weight:bold;line-height:2.3em;color:black;text-shadow:0 0.0625em 0 white;text-decoration:none;opacity:0.2;filter:alpha(opacity=20)}.postedit-close:hover{color:black;text-decoration:none;opacity:0.4;filter:alpha(opacity=40)}
+/* cache key: wiki-mw_:resourceloader:filter:minify-css:7:03b824d009d1f1ff6498a32adfcfe7ac */</style><style>
+.suggestions a.mw-searchSuggest-link,.suggestions a.mw-searchSuggest-link:hover,.suggestions a.mw-searchSuggest-link:active,.suggestions a.mw-searchSuggest-link:focus{color:black;text-decoration:none}.suggestions-result-current a.mw-searchSuggest-link,.suggestions-result-current a.mw-searchSuggest-link:hover,.suggestions-result-current a.mw-searchSuggest-link:active,.suggestions-result-current a.mw-searchSuggest-link:focus{color:white}.suggestions a.mw-searchSuggest-link .special-query{ overflow:hidden;-o-text-overflow:ellipsis; text-overflow:ellipsis;white-space:nowrap}
+/* cache key: wiki-mw_:resourceloader:filter:minify-css:7:ae3fa4570b5ac0c6cf7b3776c8ae4d6f */</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/load.css">
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: wiki-mw_:resourceloader:filter:minify-css:7:1b56003530876840dd8bc0345f288d5d */</style>
+<script src="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/load_005.php"></script><script src="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/load_003.php"></script>
+<script>if(window.mw){
+mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"BT_Shield_(Master_Slave)","wgTitle":"BT Shield (Master Slave)","wgCurRevisionId":1683,"wgRevisionId":1683,"wgArticleId":153,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":[],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"BT_Shield_(Master_Slave)","wgIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgULSAcceptLanguageList":["en-us","nl","en"],"wgULSCurrentAutonym":"Nederlands"});
+}</script><script>if(window.mw){
+mw.loader.implement("user.options",function($,jQuery){mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"editfont":"default","editondblclick":0,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":1,"extendwatchlist":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"imagesize":2,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nickname":"","norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"rcdays":7,"rclimit":50,"rows":25,"showhiddencats":0,"shownumberswatching":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":1,"watchcreations":1,"watchdefault":1,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,
+"useeditwarning":1,"prefershttps":1,"translate":0,"translate-editlangs":"default","translate-recent-groups":"","translate-sandbox":"","uls-preferences":"","language":"en","variant-gan":"gan","variant-iu":"iu","variant-kk":"kk","variant-ku":"ku","variant-shi":"shi","variant-sr":"sr","variant-tg":"tg","variant-uz":"uz","variant-zh":"zh","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false,"searchNs1198":false,"searchNs1199":false,"variant":"en"});},{},{});mw.loader.implement("user.tokens",function($,jQuery){mw.user.tokens.set({"editToken":"+\\","patrolToken":false,"watchToken":false});},{},{});
+/* cache key: wiki-mw_:resourceloader:filter:minify-js:7:70b17302afb78a4d4a6565bee8fb89c3 */
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.page.startup","mediawiki.legacy.wikibits","mediawiki.legacy.ajax","ext.uls.init","ext.uls.interface","skins.vector.js"]);
+}</script><script src="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/load_004.php"></script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/vector/csshover.min.htc")}</style><![endif]--><style>@font-face { font-family: 'Autonym';
+	src: url('/wiki/extensions/UniversalLanguageSelector/data/fontrepo/fonts/Autonym/Autonym.eot?version=20131205');
+	src: local('Autonym'),		url('/wiki/extensions/UniversalLanguageSelector/data/fontrepo/fonts/Autonym/Autonym.woff?version=20131205') format('woff'),		url('/wiki/extensions/UniversalLanguageSelector/data/fontrepo/fonts/Autonym/Autonym.ttf?version=20131205') format('truetype');
+	font-style: normal;}
+</style></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-BT_Shield_Master_Slave skin-vector action-view vector-animateLayout webfonts-changed">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;" dir="ltr" lang="nl"></div>
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">BT Shield (Master Slave)</span></h1>
+						<div id="bodyContent">
+								<div id="siteSub">Uit ITEAD Wiki</div>
+								<div id="contentSub" dir="ltr" lang="nl"></div>
+												<div id="jump-to-nav" class="mw-jump">
+					Ga naar:					<a href="#mw-navigation">navigatie</a>, 					<a href="#p-search">zoeken</a>
+				</div>
+				<div id="mw-content-text" dir="ltr" class="mw-content-ltr" lang="en"><div id="toc" class="toc"><div id="toctitle"><h2>Inhoud</h2><span class="toctoggle">&nbsp;[<a href="#" class="internal" id="togglelink">verbergen</a>]&nbsp;</span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Specifications"><span class="tocnumber">2</span> <span class="toctext">Specifications</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Electrical_Characteristics"><span class="tocnumber">3</span> <span class="toctext">Electrical Characteristics</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="#Hardware"><span class="tocnumber">4</span> <span class="toctext">Hardware</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="#UART_Multiplexer_.28For_free_UART_connection_setting.29"><span class="tocnumber">4.1</span> <span class="toctext">UART Multiplexer (For free UART connection setting)</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="#Mode_Switch"><span class="tocnumber">4.2</span> <span class="toctext">Mode Switch</span></a></li>
+<li class="toclevel-2 tocsection-7"><a href="#States_LED"><span class="tocnumber">4.3</span> <span class="toctext">States LED</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-8"><a href="#AT_command"><span class="tocnumber">5</span> <span class="toctext">AT command</span></a>
+<ul>
+<li class="toclevel-2 tocsection-9"><a href="#1._Test_command:"><span class="tocnumber">5.1</span> <span class="toctext">1. Test command:</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="#2._Reset"><span class="tocnumber">5.2</span> <span class="toctext">2. Reset</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="#3._Get_firmware_version"><span class="tocnumber">5.3</span> <span class="toctext">3. Get firmware version</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="#4._Restore_default"><span class="tocnumber">5.4</span> <span class="toctext">4. Restore default</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="#5._Get_module_address"><span class="tocnumber">5.5</span> <span class="toctext">5. Get module address</span></a></li>
+<li class="toclevel-2 tocsection-14"><a href="#6._Set.2FCheck_module_name:"><span class="tocnumber">5.6</span> <span class="toctext">6. Set/Check module name:</span></a></li>
+<li class="toclevel-2 tocsection-15"><a href="#7._Get_the_Bluetooth_device_name:"><span class="tocnumber">5.7</span> <span class="toctext">7. Get the Bluetooth device name:</span></a></li>
+<li class="toclevel-2 tocsection-16"><a href="#8._Set.2FCheck_module_mode:"><span class="tocnumber">5.8</span> <span class="toctext">8. Set/Check module mode:</span></a></li>
+<li class="toclevel-2 tocsection-17"><a href="#9._Set.2FCheck_device_class"><span class="tocnumber">5.9</span> <span class="toctext">9. Set/Check device class</span></a></li>
+<li class="toclevel-2 tocsection-18"><a href="#10._Set.2FCheck_GIAC_.28General_Inquire_Access_Code.29"><span class="tocnumber">5.10</span> <span class="toctext">10. Set/Check GIAC (General Inquire Access Code)</span></a></li>
+<li class="toclevel-2 tocsection-19"><a href="#11._Set.2FCheck_--_Query_access_patterns"><span class="tocnumber">5.11</span> <span class="toctext">11. Set/Check -- Query access patterns</span></a></li>
+<li class="toclevel-2 tocsection-20"><a href="#12._Set.2FCheck_PIN_code:"><span class="tocnumber">5.12</span> <span class="toctext">12. Set/Check PIN code:</span></a></li>
+<li class="toclevel-2 tocsection-21"><a href="#13._Set.2FCheck_serial_parameter:"><span class="tocnumber">5.13</span> <span class="toctext">13. Set/Check serial parameter:</span></a></li>
+<li class="toclevel-2 tocsection-22"><a href="#14._Set.2FCheck_connect_mode:"><span class="tocnumber">5.14</span> <span class="toctext">14. Set/Check connect mode:</span></a></li>
+<li class="toclevel-2 tocsection-23"><a href="#15._Set.2FCheck_fixed_address:"><span class="tocnumber">5.15</span> <span class="toctext">15. Set/Check fixed address:</span></a></li>
+<li class="toclevel-2 tocsection-24"><a href="#16._Set.2FCheck_LED_I.2FO"><span class="tocnumber">5.16</span> <span class="toctext">16. Set/Check LED I/O</span></a></li>
+<li class="toclevel-2 tocsection-25"><a href="#17._Set_PIO_output"><span class="tocnumber">5.17</span> <span class="toctext">17. Set PIO output</span></a></li>
+<li class="toclevel-2 tocsection-26"><a href="#18._Set.2FCheck_.E2.80.93_scan_parameter"><span class="tocnumber">5.18</span> <span class="toctext">18. Set/Check – scan parameter</span></a></li>
+<li class="toclevel-2 tocsection-27"><a href="#19._Set.2FCheck_.E2.80.93_SHIFF_parameter"><span class="tocnumber">5.19</span> <span class="toctext">19. Set/Check – SHIFF parameter</span></a></li>
+<li class="toclevel-2 tocsection-28"><a href="#20._Set.2FCheck_security_mode"><span class="tocnumber">5.20</span> <span class="toctext">20. Set/Check security mode</span></a></li>
+<li class="toclevel-2 tocsection-29"><a href="#21._Delete_Authenticated_Device"><span class="tocnumber">5.21</span> <span class="toctext">21. Delete Authenticated Device</span></a></li>
+<li class="toclevel-2 tocsection-30"><a href="#22._Delete_All_Authenticated_Device"><span class="tocnumber">5.22</span> <span class="toctext">22. Delete All Authenticated Device</span></a></li>
+<li class="toclevel-2 tocsection-31"><a href="#23._Search_Authenticated_Device"><span class="tocnumber">5.23</span> <span class="toctext">23. Search Authenticated Device</span></a></li>
+<li class="toclevel-2 tocsection-32"><a href="#24._Get_Authenticated_Device_Count"><span class="tocnumber">5.24</span> <span class="toctext">24. Get Authenticated Device Count</span></a></li>
+<li class="toclevel-2 tocsection-33"><a href="#25._Most_Recently_Used_Authenticated_Device"><span class="tocnumber">5.25</span> <span class="toctext">25. Most Recently Used Authenticated Device</span></a></li>
+<li class="toclevel-2 tocsection-34"><a href="#26._Get_the_module_working_state"><span class="tocnumber">5.26</span> <span class="toctext">26. Get the module working state</span></a></li>
+<li class="toclevel-2 tocsection-35"><a href="#27._Initialize_the_SPP_profile_lib"><span class="tocnumber">5.27</span> <span class="toctext">27. Initialize the SPP profile lib</span></a></li>
+<li class="toclevel-2 tocsection-36"><a href="#28._Inquiry_Bluetooth_Device"><span class="tocnumber">5.28</span> <span class="toctext">28. Inquiry Bluetooth Device</span></a></li>
+<li class="toclevel-2 tocsection-37"><a href="#29._Cancel_Inquiring_Bluetooth_Device"><span class="tocnumber">5.29</span> <span class="toctext">29. Cancel Inquiring Bluetooth Device</span></a></li>
+<li class="toclevel-2 tocsection-38"><a href="#30._Equipment_Matching"><span class="tocnumber">5.30</span> <span class="toctext">30. Equipment Matching</span></a></li>
+<li class="toclevel-2 tocsection-39"><a href="#31._Connect_Device"><span class="tocnumber">5.31</span> <span class="toctext">31. Connect Device</span></a></li>
+<li class="toclevel-2 tocsection-40"><a href="#32._Disconnect"><span class="tocnumber">5.32</span> <span class="toctext">32. Disconnect</span></a></li>
+<li class="toclevel-2 tocsection-41"><a href="#33._Energy-saving_mode"><span class="tocnumber">5.33</span> <span class="toctext">33. Energy-saving mode</span></a></li>
+<li class="toclevel-2 tocsection-42"><a href="#34._Exerts_Energy-saving_mode"><span class="tocnumber">5.34</span> <span class="toctext">34. Exerts Energy-saving mode</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-43"><a href="#Download"><span class="tocnumber">6</span> <span class="toctext">Download</span></a></li>
+<li class="toclevel-1 tocsection-44"><a href="#Useful_Links"><span class="tocnumber">7</span> <span class="toctext">Useful Links</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Overview">Overview</span></h2>
+<div class="thumb tright"><div class="thumbinner" style="width:402px;"><a href="https://www.itead.cc/wiki/File:ITEAD_BT_SHIELD_(MASTER_SLAVE).jpg" class="image"><img alt="ITEAD BT SHIELD (MASTER SLAVE).jpg" src="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/400px-ITEAD_BT_SHIELD_MASTER_SLAVE.jpg" class="thumbimage" srcset="/wiki/images/thumb/3/39/ITEAD_BT_SHIELD_%28MASTER_SLAVE%29.jpg/600px-ITEAD_BT_SHIELD_%28MASTER_SLAVE%29.jpg 1.5x, /wiki/images/thumb/3/39/ITEAD_BT_SHIELD_%28MASTER_SLAVE%29.jpg/800px-ITEAD_BT_SHIELD_%28MASTER_SLAVE%29.jpg 2x" width="400" height="400"></a>  <div class="thumbcaption"><div class="magnify"><a href="https://www.itead.cc/wiki/File:ITEAD_BT_SHIELD_(MASTER_SLAVE).jpg" class="internal" title="Vergroten"><img src="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/magnify-clip.png" alt="" width="15" height="11"></a></div></div></div></div>
+<p>BT <a href="https://www.itead.cc/wiki/Shield" title="Shield">shield</a> V2.2 is a serial port Bluetooth module (with master and 
+slave mode) breakout board, it’s compatible with Arduino and IFlat-32, 
+it can directly plug on Arduino/IFlat-32 board, use UART port for 
+communication with Arduino/IFlat-32 or PC.
+</p><p>Go shopping <a rel="nofollow" class="external text" href="http://imall.iteadstudio.com/im120417010.html">BT Shield (Master Slave) (IM120417010)</a>
+</p>
+<h2><span class="mw-headline" id="Specifications">Specifications</span></h2>
+<table border="1">
+
+<tbody><tr>
+<td> Microprocessor</td>
+<td>CSR BC417
+</td></tr>
+<tr>
+<td> PCB size</td>
+<td>53.3mm X 47mm X 1.6mm
+</td></tr>
+<tr>
+<td> Indicators</td>
+<td>PWR,State
+</td></tr>
+<tr>
+<td> Power supply</td>
+<td>5V DC
+</td></tr>
+<tr>
+<td> IO</td>
+<td>6
+</td></tr>
+<tr>
+<td> Communication Protocol </td>
+<td>UART/Bluetooth 2.0
+</td></tr>
+<tr>
+<td> RoSH</td>
+<td>Yes
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Electrical_Characteristics">Electrical Characteristics</span></h2>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Specification</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Min</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Type</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Max</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Unit</b>
+</td></tr>
+<tr>
+<td> Power Voltage </td>
+<td>4.5</td>
+<td>5</td>
+<td>5.5</td>
+<td>VDC
+</td></tr>
+<tr>
+<td> Input Voltage VH (Target Voltage = 3.3V)</td>
+<td>3</td>
+<td>3.3</td>
+<td>3.6</td>
+<td>VDC
+</td></tr>
+<tr>
+<td> Input Voltage VH (Target Voltage = 5V)</td>
+<td>4.5</td>
+<td>5</td>
+<td>5.5</td>
+<td>V
+</td></tr>
+<tr>
+<td> Input Voltage VL:</td>
+<td>-0.3</td>
+<td>0</td>
+<td>0.5</td>
+<td>V
+</td></tr>
+<tr>
+<td> Current Consumption</td>
+<td>-</td>
+<td>20</td>
+<td>40</td>
+<td>mA
+</td></tr></tbody></table>
+<h2><span class="mw-headline" id="Hardware">Hardware</span></h2>
+<p><a href="https://www.itead.cc/wiki/File:ITEAD_BT_SHIELD_(MASTER_SLAVE)1.jpg" class="image"><img alt="ITEAD BT SHIELD (MASTER SLAVE)1.jpg" src="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/ITEAD_BT_SHIELD_MASTER_SLAVE1.jpg" width="522" height="539"></a>
+</p>
+<h3><span class="mw-headline" id="UART_Multiplexer_.28For_free_UART_connection_setting.29">UART Multiplexer (For free UART connection setting)</span></h3>
+<p>You can use the jumper to connect the TXD and RXD pins of HC-05 to 
+D0, D1, D4~D7 pin of Arduino. 
+</p><p><a href="https://www.itead.cc/wiki/File:ITEAD_BT_SHIELD_(MASTER_SLAVE)2.jpg" class="image"><img alt="ITEAD BT SHIELD (MASTER SLAVE)2.jpg" src="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/ITEAD_BT_SHIELD_MASTER_SLAVE2.jpg" width="572" height="187"></a>
+</p><p>When using the connection as Figure 3, the BT <a href="https://www.itead.cc/wiki/Shield" title="Shield">shield</a> connects to the 
+ATMega328 chip on board.
+</p><p><a href="https://www.itead.cc/wiki/File:ITEAD_BT_SHIELD_(MASTER_SLAVE)3.jpg" class="image"><img alt="ITEAD BT SHIELD (MASTER SLAVE)3.jpg" src="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/ITEAD_BT_SHIELD_MASTER_SLAVE3.jpg" width="564" height="188"></a>
+</p><p>When using the connection as Figure 4, the HC-05 connects with the 
+FT232RL chip, and the FT232RL connect to PC by USB. Whit this 
+configuration you can use the serial software on PC to control or 
+configure the HC-05 module. 
+</p><p><a href="https://www.itead.cc/wiki/File:ITEAD_BT_SHIELD_(MASTER_SLAVE)4.jpg" class="image"><img alt="ITEAD BT SHIELD (MASTER SLAVE)4.jpg" src="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/ITEAD_BT_SHIELD_MASTER_SLAVE4.jpg" width="559" height="191"></a>
+</p><p>Except the 2 configurations above, you can connect the TXD and RXD 
+to any other pins from D4-D7, and using the software-serial library to 
+control the HC-05 module.
+</p><p><a href="https://www.itead.cc/wiki/File:ITEAD_BT_SHIELD_(MASTER_SLAVE)5.jpg" class="image"><img alt="ITEAD BT SHIELD (MASTER SLAVE)5.jpg" src="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/ITEAD_BT_SHIELD_MASTER_SLAVE5.jpg" width="557" height="195"></a>
+</p>
+<h3><span class="mw-headline" id="Mode_Switch">Mode Switch</span></h3>
+<p>The Mode Set Switch is connected to PIO11, when it is pushed to CMD 
+and powered on, the HC-05 enter command mode, HC-05 module can 
+receive and response AT command in this mode. When it is pushed to 
+DATA and powered on. The HC-05 enters data mode and will not 
+accept AT command.
+</p>
+<h3><span class="mw-headline" id="States_LED">States LED</span></h3>
+<p>When power on and disconnect the port, states LED blinks 1time/2s&nbsp;; 
+when the module connect and open the serial port, states LED blinks 
+2times/s.
+</p>
+<h2><span class="mw-headline" id="AT_command">AT command</span></h2>
+<h3><span class="mw-headline" id="1._Test_command:">1. Test command:</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT</td>
+<td>OK</td>
+<td>-
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="2._Reset">2. Reset</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+RESET</td>
+<td>OK</td>
+<td>-
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="3._Get_firmware_version">3. Get firmware version</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+VERSION?</td>
+<td>+VERSION:&lt;Param&gt; OK </td>
+<td>Param&nbsp;: firmware version
+</td></tr></tbody></table>
+<p><b>Example:</b> 
+</p><p>AT+VERSION?\r\n 
+</p><p>+VERSION:2.0-20100601 
+</p><p>OK
+</p>
+<h3><span class="mw-headline" id="4._Restore_default">4. Restore default</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+ORGL</td>
+<td>OK</td>
+<td>-
+</td></tr></tbody></table>
+<p><b>Default state:</b> 
+</p><p>Slave mode, pin code&nbsp;:1234, device name: H-C-2010-06-01 ,Baud 
+38400bits/s.
+</p>
+<h3><span class="mw-headline" id="5._Get_module_address">5. Get module address</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+ADDR?</td>
+<td>+ADDR:&lt;Param&gt; OK </td>
+<td>Param: address of Bluetooth module
+</td></tr></tbody></table>
+<p>Bluetooth address: NAP: UAP&nbsp;: LAP 
+</p><p><b>Example:</b> 
+</p><p>AT+ADDR?\r\n 
+</p><p>+ADDR:1234:56:abcdef 
+</p><p>OK
+</p>
+<h3><span class="mw-headline" id="6._Set.2FCheck_module_name:">6. Set/Check module name:</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+NAME=&lt;Param&gt;</td>
+<td>OK</td>
+<td>Param: Bluetooth module name (Default&nbsp;:HC-05)
+</td></tr>
+<tr>
+<td> AT+NAME?</td>
+<td>+NAME:&lt;Param&gt; OK (/FAIL) </td>
+<td>Param: Bluetooth module name (Default&nbsp;:HC-05)
+</td></tr></tbody></table>
+<p><b>Example:</b> 
+</p><p>AT+NAME=HC-05\r\n                         set the module name to HC-05
+</p><p>OK 
+</p><p>AT+NAME=ITeadStudio\r\n 
+</p><p>OK 
+</p><p>AT+NAME?\r\n 
+</p><p>+NAME: ITeadStudio 
+</p><p>OK
+</p>
+<h3><span class="mw-headline" id="7._Get_the_Bluetooth_device_name:">7. Get the Bluetooth device name:</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+RNAME?&lt;Param1&gt;</td>
+<td>1. +NAME:&lt;Param2&gt; OK 2. FAIL</td>
+<td>Param1,Param 2&nbsp;: the address of Bluetooth device
+</td></tr></tbody></table>
+<p><b>Example:</b> (Device address 00:02:72:od:22:24，name：ITead) 
+</p><p>AT+RNAME? 0002，72，od2224\r\n 
+</p><p>+RNAME:ITead 
+</p><p>OK
+</p>
+<h3><span class="mw-headline" id="8._Set.2FCheck_module_mode:">8. Set/Check module mode:</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+ROLE=&lt;Param&gt; </td>
+<td>OK</td>
+<td>Param: 0- Slave 1-Master 2-Slave-Loop
+</td></tr>
+<tr>
+<td> AT+ ROLE? </td>
+<td>+ROLE:&lt;Param&gt; OK</td>
+<td>Param: 0- Slave 1-Master 2-Slave-Loop
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="9._Set.2FCheck_device_class">9. Set/Check device class</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+CLASS=&lt;Param&gt;</td>
+<td>OK</td>
+<td>Param: Device Class
+</td></tr>
+<tr>
+<td> AT+ CLASS? </td>
+<td>1. +CLASS:&lt;Param&gt; OK   2. FAIL</td>
+<td>Param: Device Class
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="10._Set.2FCheck_GIAC_.28General_Inquire_Access_Code.29">10. Set/Check GIAC (General Inquire Access Code)</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+IAC=&lt;Param&gt; </td>
+<td>1.OK 2. FAIL</td>
+<td>Param: GIAC (Default&nbsp;: 9e8b33)
+</td></tr>
+<tr>
+<td> AT+IAC </td>
+<td>+IAC:&lt;Param&gt; OK</td>
+<td>Param: GIAC (Default&nbsp;: 9e8b33)
+</td></tr></tbody></table>
+<p><b>Example:</b> 
+</p><p>AT+IAC=9e8b3f\r\n 
+</p><p>OK 
+</p><p>AT+IAC?\r\n 
+</p><p>+IAC: 9e8b3f 
+</p><p>OK
+</p>
+<h3><span class="mw-headline" id="11._Set.2FCheck_--_Query_access_patterns">11. Set/Check -- Query access patterns</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+INQM=&lt;Param&gt;,&lt;Param2&gt;, &lt;Param3&gt; </td>
+<td>1.OK 2. FAIL</td>
+<td>Param: 0——inquiry_mode_standard   1——inquiry_mode_rssi Param2: 
+Maximum number of Bluetooth devices to respond to  Param3: Timeout 
+(1-48&nbsp;: 1.28s to 61.44s)
+</td></tr>
+<tr>
+<td> AT+ INQM? </td>
+<td>+INQM ：&lt;Param&gt;,&lt;Param2&gt;, &lt;Param3&gt; OK </td>
+<td>Param: 0——inquiry_mode_standard   1——inquiry_mode_rssi Param2: 
+Maximum number of Bluetooth devices to respond to  Param3: Timeout 
+(1-48&nbsp;: 1.28s to 61.44s)
+</td></tr></tbody></table>
+<p><b>Example:</b> 
+</p><p>AT+INQM=1,9,48\r\n 
+</p><p>OK 
+</p><p>AT+INQM\r\n
+</p><p>+INQM:1, 9, 48 
+</p><p>OK
+</p>
+<h3><span class="mw-headline" id="12._Set.2FCheck_PIN_code:">12. Set/Check PIN code:</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+PSWD=&lt;Param&gt;</td>
+<td>OK</td>
+<td>Param: PIN code (Default 1234)
+</td></tr>
+<tr>
+<td> AT+ PSWD?</td>
+<td>+ PSWD ：&lt;Param&gt; OK </td>
+<td>Param: PIN code (Default 1234)
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="13._Set.2FCheck_serial_parameter:">13. Set/Check serial parameter:</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+UART=&lt;Param&gt;,&lt;Param2&gt;,&lt;Param3&gt;</td>
+<td>OK</td>
+<td>Param1: Baud Param2: Stop bit Param3: Parity
+</td></tr>
+<tr>
+<td> AT+UART?</td>
+<td>+UART=&lt;Param&gt;,&lt;Param2&gt;, &lt;Param3&gt; OK </td>
+<td>Param1: Baud Param2: Stop bit Param3: Parity
+</td></tr></tbody></table>
+<p><b>Example:</b> 
+</p><p>AT+UART=115200，1,2,\r\n 
+</p><p>OK 
+</p><p>AT+UART? 
+</p><p>+UART:115200,1,2 
+</p><p>OK
+</p>
+<h3><span class="mw-headline" id="14._Set.2FCheck_connect_mode:">14. Set/Check connect mode:</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+CMODE=&lt;Param&gt; </td>
+<td>OK</td>
+<td>Param: 0 - connect fixed address 1 - connect any
+<p>address 2 - slave-Loop 
+</p>
+</td></tr>
+<tr>
+<td> AT+ CMODE? </td>
+<td>+ CMODE:&lt;Param&gt; OK</td>
+<td>Param: 0 - connect fixed address 1 - connect any address 2 - slave-Loop
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="15._Set.2FCheck_fixed_address:">15. Set/Check fixed address:</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+BIND=&lt;Param&gt;</td>
+<td>OK</td>
+<td>Param: Fixed address (Default 00:00:00:00:00:00)
+</td></tr>
+<tr>
+<td> AT+ BIND?</td>
+<td>+ BIND:&lt;Param&gt; OK</td>
+<td>Param: Fixed address (Default 00:00:00:00:00:00)
+</td></tr></tbody></table>
+<p><b>Example:</b>
+</p><p>AT+BIND=1234，56，abcdef\r\n 
+</p><p>OK 
+</p><p>AT+BIND?\r\n 
+</p><p>+BIND:1234:56:abcdef 
+</p><p>OK
+</p>
+<h3><span class="mw-headline" id="16._Set.2FCheck_LED_I.2FO">16. Set/Check LED I/O</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+POLAR=&lt;Param1,&lt;Param2&gt;</td>
+<td>OK</td>
+<td>Param1: 0- PIO8 low drive LED 1- PIO8 high drive
+<p>LED Param2: 0- PIO9 low drive LED 1- PIO9 high drive LED 
+</p>
+</td></tr>
+<tr>
+<td> AT+ POLAR? </td>
+<td>+ POLAR=&lt;Param1&gt;,&lt;Param2&gt; OK </td>
+<td>Param1: 0- PIO8 low drive LED 1- PIO8 high drive LED Param2: 0- PIO9 low drive LED 1- PIO9 high drive LED
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="17._Set_PIO_output">17. Set PIO output</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+PIO=&lt;Param1&gt;,&lt;Param2&gt;</td>
+<td>OK</td>
+<td>Param1: PIO number Param2: PIO level 0- low 1- high
+</td></tr></tbody></table>
+<p><b>Example:</b>
+</p><p>1. PIO10 output high level 
+</p><p>AT+PI0=10，1\r\n 
+</p><p>OK
+</p>
+<h3><span class="mw-headline" id="18._Set.2FCheck_.E2.80.93_scan_parameter">18. Set/Check – scan parameter</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+IPSCAN=&lt;Param1&gt;,&lt;Param2&gt;,&lt;Param3&gt;,&lt;Param4&gt;</td>
+<td>OK</td>
+<td>Param1: Query time interval
+<p>Param2 ： Query duration Param3 ： Paging interval Param4 ： Call duration 
+</p>
+</td></tr>
+<tr>
+<td> AT+IPSCAN? </td>
+<td>+IPSCAN:&lt;Param1&gt;,&lt;Param2&gt;,&lt;Param3&gt;,&lt;Param4&gt; OK </td>
+<td>Param1: Query time interval Param2 ： Query duration Param3 ： Paging interval Param4 ： Call duration
+</td></tr></tbody></table>
+<p><b>Example:</b> 
+</p><p>AT+IPSCAN =1234,500,1200,250\r\n 
+</p><p>OK 
+</p><p>AT+IPSCAN? 
+</p><p>+IPSCAN:1234,500,1200,250
+</p>
+<h3><span class="mw-headline" id="19._Set.2FCheck_.E2.80.93_SHIFF_parameter">19. Set/Check – SHIFF parameter</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+SNIFF=&lt;Param1&gt;,&lt;Param2&gt;,&lt;Param3&gt;,&lt;Param4&gt;</td>
+<td>OK</td>
+<td>Param1: Max time Param2: Min time Param3: Retry time Param4: Time out
+</td></tr>
+<tr>
+<td> AT+ SNIFF?</td>
+<td>+SNIFF:&lt;Param1&gt;,&lt;Param2&gt;,&lt;Param3&gt;,&lt;Param4&gt; OK</td>
+<td>Param1: Max time Param2: Min time Param3: Retry time Param4: Time out
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="20._Set.2FCheck_security_mode">20. Set/Check security mode</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+SENM=&lt;Param1&gt;,&lt;Param2&gt;</td>
+<td>1. OK 2. FAIL </td>
+<td>Param1:
+<p>0——sec_mode0+off 
+</p><p>1——sec_mode1+
+non_secure 
+</p><p>2——sec_mode2_
+service 
+</p><p>3——sec_mode3_l
+ink 
+</p><p>4——sec_mode_u
+nknown 
+</p><p>Param2:
+</p><p>0——hci_enc_mod
+e_off 
+</p><p>1——hci_enc_mod
+e_pt_to_pt 
+</p><p>2——hci_enc_mod
+e_pt_to_pt_and_b
+cast 
+</p>
+</td></tr>
+<tr>
+<td> AT+ SENM?</td>
+<td>+ SENM:&lt;Param1&gt;,&lt;Param2&gt; OK  </td>
+<td>Param1:
+<p>0——sec_mode0+off 
+</p><p>1——sec_mode1+
+non_secure 
+</p><p>2——sec_mode2_
+service 
+</p><p>3——sec_mode3_l
+ink 
+</p><p>4——sec_mode_u
+nknown 
+</p><p>Param2:
+</p><p>0——hci_enc_mod
+e_off 
+</p><p>1——hci_enc_mod
+e_pt_to_pt 
+</p><p>2——hci_enc_mod
+e_pt_to_pt_and_b
+cast 
+</p>
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="21._Delete_Authenticated_Device">21. Delete Authenticated Device</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+PMSAD=&lt;Param&gt;</td>
+<td>OK</td>
+<td>Param: Authenticated Device Address
+</td></tr></tbody></table>
+<p><b>Example:</b> 
+</p><p>AT+PMSAD =1234,56,abcdef\r\n 
+</p><p>OK
+</p>
+<h3><span class="mw-headline" id="22._Delete_All_Authenticated_Device">22. Delete All Authenticated Device</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+ RMAAD</td>
+<td>OK</td>
+<td>-
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="23._Search_Authenticated_Device">23. Search Authenticated Device</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+FSAD=&lt;Param&gt;</td>
+<td>1. OK 2. FAIL </td>
+<td>Param: Device address
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="24._Get_Authenticated_Device_Count">24. Get Authenticated Device Count</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+ADCN?</td>
+<td>+ADCN：&lt;Param&gt; OK</td>
+<td>Param: Device Count
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="25._Most_Recently_Used_Authenticated_Device">25. Most Recently Used Authenticated Device</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+MRAD? </td>
+<td>+ MRAD：&lt;Param&gt; OK </td>
+<td>Param: Recently Authenticated Device Address
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="26._Get_the_module_working_state">26. Get the module working state</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+ STATE? </td>
+<td>+ STATE：&lt;Param&gt; OK</td>
+<td>Param: "INITIALIZED" "READY" "PAIRABLE" "PAIRED" "INQUIRING" "CONNECTING" "CONNECTED""DISCONNECTED" "NUKNOW"
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="27._Initialize_the_SPP_profile_lib">27. Initialize the SPP profile lib</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+INIT</td>
+<td>1. OK 2. FAIL</td>
+<td>-
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="28._Inquiry_Bluetooth_Device">28. Inquiry Bluetooth Device</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+INQ </td>
+<td>+INQ: &lt;Param1&gt;, &lt;Param2&gt;, &lt;Param3&gt; …. OK </td>
+<td>Param1：Address  Param2 ： Device Class  Param3 ： RSSI  Signal strength
+</td></tr></tbody></table>
+<p><b>Example:</b> 
+</p><p>AT+INIT\r\n 
+</p><p>OK 
+</p><p>AT+IAC=9e8b33\r\n 
+</p><p>OK 
+</p><p>AT+CLASS=0\r\n 
+</p><p>AT+INQM=1,9,48\r\n 
+</p><p>At+INQ\r\n 
+</p><p>+INQ:2:72:D2224,3E0104,FFBC 
+</p><p>+INQ:1234:56:0,1F1F,FFC1 
+</p><p>+INQ:1234:56:0,1F1F,FFC0
+</p><p>+INQ:1234:56:0,1F1F,FFC1
+</p><p>+INQ:2:72:D2224,3F0104,FFAD 
+</p><p>+INQ:1234:56:0,1F1F,FFBE 
+</p><p>+INQ:1234:56:0,1F1F,FFC2 
+</p><p>+INQ:1234:56:0,1F1F,FFBE 
+</p><p>+INQ:2:72:D2224,3F0104,FFBC 
+</p><p>OK
+</p>
+<h3><span class="mw-headline" id="29._Cancel_Inquiring_Bluetooth_Device">29. Cancel Inquiring Bluetooth Device</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+ INQC</td>
+<td>OK</td>
+<td>-
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="30._Equipment_Matching">30. Equipment Matching</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+PAIR=&lt;Param1&gt;,&lt;Param2&gt;</td>
+<td>1. OK 2. FAIL</td>
+<td>Param1 ：Device Address  Param2：Time out
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="31._Connect_Device">31. Connect Device</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+LINK=&lt;Param&gt;</td>
+<td>1. OK 2. FAIL</td>
+<td>Param ： Device Address
+</td></tr></tbody></table>
+<p><b>Example:</b> 
+</p><p>AT+FSAD=1234,56,abcdef\r\n 
+</p><p>OK 
+</p><p>AT+LINK=1234,56,abcdef\r\n 
+</p><p>OK
+</p>
+<h3><span class="mw-headline" id="32._Disconnect">32. Disconnect</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+DISC</td>
+<td>1. +DISC:SUCCESS OK 2. +DISC:LINK_LOSS OK 3. +DISC:NO_SLC OK 4. +DISC:TIMEOUT OK 5. +DISC:ERROR OK</td>
+<td>Param ： Device Address
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="33._Energy-saving_mode">33. Energy-saving mode</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+ENSNIFF=&lt;Param&gt;</td>
+<td>OK</td>
+<td>Param ： Device Address
+</td></tr></tbody></table>
+<h3><span class="mw-headline" id="34._Exerts_Energy-saving_mode">34. Exerts Energy-saving mode</span></h3>
+<table class="wikitable">
+
+<tbody><tr>
+<td style="background:#f0f0f0;" align="center"><b>Command</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Respond</b>
+</td>
+<td style="background:#f0f0f0;" align="center"><b>Parameter</b>
+</td></tr>
+<tr>
+<td> AT+ EXSNIFF =&lt;Param&gt;</td>
+<td>OK</td>
+<td>Param ： Device Address
+</td></tr></tbody></table>
+<p><b>Application Example</b>
+</p><p>This is a demo that HC-05 is a master device and communicates to 
+hc-06. 
+</p><p>Step 1. Push the mode switch to CMD 
+</p><p>Step 2. Power on, module enter command state 
+</p><p>Step 3. Using baud rate 38400, send the ―AT+ROLE=1\r\n‖ to module, 
+with ―OK\r\n‖ means setting successes. 
+</p><p>Step 4. Send ―AT+CMODE=1\r\n‖, set HC-05 connect to any address, 
+with ―OK\r\n‖ means setting successes.
+</p>
+<h2><span class="mw-headline" id="Download">Download</span></h2>
+<p><a rel="nofollow" class="external text" href="ftp://imall.iteadstudio.com/IM120417010_BT_Shield_v2.2/DS_IM120417010_BTShield.pdf">Datasheet for BT Shield</a>
+</p><p><a rel="nofollow" class="external text" href="ftp://imall.iteadstudio.com/IM120417010_BT_Shield_v2.2/DS_BluetoothHC05.pdf">Datasheet for BluetoothHC05</a>
+</p><p><a rel="nofollow" class="external text" href="ftp://imall.iteadstudio.com/IM120417010_BT_Shield_v2.2/SCH_IM120417010_BTShield.pdf">Schematic for BT Shield</a>
+</p>
+<h2><span class="mw-headline" id="Useful_Links">Useful Links</span></h2>
+<p><a rel="nofollow" class="external text" href="http://home.comcast.net/~tomhorsley/hardware/arduino/datasheet.html">by Tom &lt;The Missing BT Shield Datasheet&gt;</a>
+</p><p><a rel="nofollow" class="external text" href="http://forum.arduino.cc/index.php/topic,90048.msg676100.html#msg676100">by And1G &lt;How to work with AT-Command?&gt;</a>
+</p><p><a rel="nofollow" class="external text" href="http://blog.iteadstudio.com/upload-program-to-arduino-with-bt-shield/">&lt;Upload Program To Arduino With BT Shield&gt;</a>
+</p>
+<!-- 
+NewPP limit report
+CPU time usage: 0.091 seconds
+Real time usage: 0.375 seconds
+Preprocessor visited node count: 174/1000000
+Preprocessor generated node count: 180/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/40
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wiki-mw_:pcache:idhash:153-0!*!0!!nl!2!* and timestamp 20180406073528 and revision id 1683
+ -->
+</div>								<div class="printfooter">
+				Overgenomen van "<a href="https://www.itead.cc/wiki/index.php?title=BT_Shield_(Master_Slave)&amp;oldid=1683">https://www.itead.cc/wiki/index.php?title=BT_Shield_(Master_Slave)&amp;oldid=1683</a>"				</div>
+												<div id="catlinks" class="catlinks catlinks-allhidden"></div>												<div class="visualClear"></div>
+							</div>
+		</div>
+		<div id="mw-navigation">
+			<h2>Navigatiemenu</h2>
+			<div id="mw-head">
+				<div id="p-personal" role="navigation" class="" aria-labelledby="p-personal-label">
+	<h3 id="p-personal-label">Persoonlijke instellingen</h3>
+	<ul dir="ltr" lang="nl">
+<li id="pt-uls" class="active"><a href="#" class="uls-trigger autonym" tabindex="0" role="button" aria-haspopup="true" original-title="">Nederlands</a></li><li id="pt-login"><a href="https://www.itead.cc/wiki/index.php?title=Special:UserLogin&amp;returnto=BT+Shield+%28Master+Slave%29" title="U wordt van harte uitgenodigd om u aan te melden als gebruiker, maar dit is niet verplicht [alt-shift-o]" accesskey="o">Aanmelden</a></li>	</ul>
+</div>
+				<div id="left-navigation">
+					<div id="p-namespaces" role="navigation" class="vectorTabs" aria-labelledby="p-namespaces-label">
+	<h3 id="p-namespaces-label">Naamruimten</h3>
+	<ul dir="ltr" lang="nl">
+					<li id="ca-nstab-main" class="selected"><span><a href="https://www.itead.cc/wiki/BT_Shield_(Master_Slave)" title="Inhoudspagina bekijken [alt-shift-c]" accesskey="c">Pagina</a></span></li>
+					<li id="ca-talk" class="new"><span><a href="https://www.itead.cc/wiki/index.php?title=Talk:BT_Shield_(Master_Slave)&amp;action=edit&amp;redlink=1" title="Overleg over deze pagina [alt-shift-t]" accesskey="t">Overleg</a></span></li>
+			</ul>
+</div>
+<div id="p-variants" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-variants-label">
+	<h3 id="mw-vector-current-variant">
+		</h3>
+	<h3 id="p-variants-label" tabindex="0"><span>Varianten</span><a href="#" tabindex="-1"></a></h3>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+				</div>
+				<div id="right-navigation">
+					<div id="p-views" role="navigation" class="vectorTabs" aria-labelledby="p-views-label">
+	<h3 id="p-views-label">Weergaven</h3>
+	<ul dir="ltr" lang="nl">
+					<li id="ca-view" class="selected"><span><a href="https://www.itead.cc/wiki/BT_Shield_(Master_Slave)">Lezen</a></span></li>
+					<li id="ca-viewsource"><span><a href="https://www.itead.cc/wiki/index.php?title=BT_Shield_(Master_Slave)&amp;action=edit" title="Deze pagina is beveiligd.
+U kunt wel de broncode bekijken. [alt-shift-e]" accesskey="e">Brontekst bekijken</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="https://www.itead.cc/wiki/index.php?title=BT_Shield_(Master_Slave)&amp;action=history" title="Eerdere versies van deze pagina [alt-shift-h]" accesskey="h">Geschiedenis weergeven</a></span></li>
+			</ul>
+</div>
+<div id="p-cactions" role="navigation" class="vectorMenu emptyPortlet" aria-labelledby="p-cactions-label">
+	<h3 id="p-cactions-label" tabindex="0"><span>Handelingen</span><a href="#" tabindex="-1"></a></h3>
+	<div class="menu">
+		<ul dir="ltr" lang="nl">
+					</ul>
+	</div>
+</div>
+<div id="p-search" role="search">
+	<h3 dir="ltr" lang="nl"><label for="searchInput">Zoeken</label></h3>
+	<form action="/wiki/index.php" id="searchform">
+					<div id="simpleSearch">
+					<input name="search" placeholder="Zoeken" title="Zoeken in ITEAD Wiki [alt-shift-f]" accesskey="f" id="searchInput" tabindex="1" class="webfonts-changed" autocomplete="off" type="search"><input value="Special:Search" name="title" class="webfonts-changed" type="hidden"><input name="go" value="OK" title="Naar een pagina met deze naam gaan als die bestaat" id="searchButton" class="searchButton webfonts-changed" type="submit">		</div>
+	</form>
+</div>
+				</div>
+			</div>
+			<div id="mw-panel" class="collapsible-nav">
+					<div id="p-logo" role="banner"><a style="background-image: url(/wiki/skins/common/images/iteadlogo.png);" href="https://www.itead.cc/wiki/Main_Page" title="Naar de hoofdpagina gaan"></a></div>
+				<div class="portal first persistent" role="navigation" id="p-Navigation" aria-labelledby="p-Navigation-label">
+	<h3 dir="ltr" id="p-Navigation-label" lang="nl">Navigatie</h3>
+	<div class="body">
+		<ul>
+			<li id="n-Product"><a href="https://www.itead.cc/wiki/Product">Product</a></li>
+			<li id="n-Tutorial"><a href="https://www.itead.cc/wiki/Tutorial">Tutorial</a></li>
+			<li id="n-Project"><a href="https://www.itead.cc/wiki/Project">Project</a></li>
+			<li id="n-Download"><a href="https://www.itead.cc/wiki/Download">downloaden</a></li>
+			<li id="n-Support-Desk"><a href="http://support.iteadstudio.com/" rel="nofollow">Support Desk</a></li>
+			<li id="n-ITEAD-Blog"><a href="http://blog.iteadstudio.com/" rel="nofollow">ITEAD Blog</a></li>
+		</ul>
+	</div>
+</div>
+<div class="portal expanded" role="navigation" id="p-tb" aria-labelledby="p-tb-label">
+	<h3 dir="ltr" id="p-tb-label" tabindex="2" lang="nl"><a href="#" aria-haspopup="true" aria-controls="p-tb-list" role="button" aria-pressed="true" aria-expanded="true">Hulpmiddelen</a></h3>
+	<div class="body" style="display: block;">
+		<ul id="p-tb-list">
+			<li id="t-whatlinkshere"><a href="https://www.itead.cc/wiki/Special:WhatLinksHere/BT_Shield_(Master_Slave)" title="Lijst met alle pagina's die naar deze pagina verwijzen [alt-shift-j]" accesskey="j">Koppelingen naar deze pagina</a></li>
+			<li id="t-recentchangeslinked"><a href="https://www.itead.cc/wiki/Special:RecentChangesLinked/BT_Shield_(Master_Slave)" title="Recente wijzigingen in pagina's waar deze pagina naar verwijst [alt-shift-k]" accesskey="k">Verwante wijzigingen</a></li>
+			<li id="t-specialpages"><a href="https://www.itead.cc/wiki/Special:SpecialPages" title="Lijst met alle speciale pagina's [alt-shift-q]" accesskey="q">Speciale pagina's</a></li>
+			<li id="t-print"><a href="https://www.itead.cc/wiki/index.php?title=BT_Shield_(Master_Slave)&amp;printable=yes" rel="alternate" title="Printvriendelijke versie van deze pagina [alt-shift-p]" accesskey="p">Printervriendelijke versie</a></li>
+			<li id="t-permalink"><a href="https://www.itead.cc/wiki/index.php?title=BT_Shield_(Master_Slave)&amp;oldid=1683" title="Permanente koppeling naar deze versie van de pagina">Permanente koppeling</a></li>
+			<li id="t-info"><a href="https://www.itead.cc/wiki/index.php?title=BT_Shield_(Master_Slave)&amp;action=info">Paginagegevens</a></li>
+		</ul>
+	</div>
+</div>
+			</div>
+		</div>
+		<div id="footer" role="contentinfo" dir="ltr" lang="nl">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> Deze pagina is het laatst bewerkt op 11 jun 2014 om 06:07.</li>
+											<li id="footer-info-viewcount">Deze pagina is 33.677 keer bekeken.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="https://www.itead.cc/wiki/ITEAD_Wiki:Privacy_policy" title="ITEAD Wiki:Privacy policy">Privacybeleid</a></li>
+											<li id="footer-places-about"><a href="https://www.itead.cc/wiki/ITEAD_Wiki:About" title="ITEAD Wiki:About">Over ITEAD Wiki</a></li>
+											<li id="footer-places-disclaimer"><a href="https://www.itead.cc/wiki/ITEAD_Wiki:General_disclaimer" title="ITEAD Wiki:General disclaimer">Voorbehoud</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+					<li id="footer-poweredbyico">
+						<a href="https://www.mediawiki.org/"><img src="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31"></a>
+					</li>
+				</ul>
+						<div style="clear:both"></div>
+		</div>
+		<script>/*<![CDATA[*/window.jQuery && jQuery.ready();/*]]>*/</script><script>if(window.mw){
+mw.loader.state({"site":"loading","user":"ready","user.groups":"ready"});
+}</script>
+<script>if(window.mw){
+mw.loader.load(["mediawiki.action.view.postEdit","mediawiki.user","mediawiki.hidpi","mediawiki.page.ready","mediawiki.searchSuggest","ext.uls.pt","skins.vector.collapsibleNav"],null,true);
+}</script>
+<script src="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/geoiplookup"></script>
+<script src="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/load_006.php"></script>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="BT%20Shield%20(Master%20Slave)%20-%20ITEAD%20Wiki_files/ga.js" type="text/javascript"></script><div style="display: none; font-size: 13px;" class="suggestions"><div class="suggestions-results"></div><div class="suggestions-special"></div></div>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-12350753-8");
+pageTracker._trackPageview();
+} catch(err) {}
+</script><script>if(window.mw){
+mw.config.set({"wgBackendResponseTime":255});
+}</script>
+	
+
+</body></html>
