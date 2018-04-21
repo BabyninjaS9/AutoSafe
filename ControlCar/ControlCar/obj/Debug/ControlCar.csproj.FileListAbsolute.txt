@@ -1,0 +1,10 @@
+D:\Documents\Git\AutoSafe\ControlCar\ControlCar\obj\Debug\ControlCar.csprojResolveAssemblyReference.cache
+D:\Documents\Git\AutoSafe\ControlCar\ControlCar\obj\Debug\ControlCar.Properties.Resources.resources
+D:\Documents\Git\AutoSafe\ControlCar\ControlCar\obj\Debug\ControlCar.csproj.GenerateResource.Cache
+D:\Documents\Git\AutoSafe\ControlCar\ControlCar\obj\Debug\ControlCar.csproj.CoreCompileInputs.cache
+D:\Documents\Git\AutoSafe\ControlCar\ControlCar\bin\Debug\ControlCar.exe.config
+D:\Documents\Git\AutoSafe\ControlCar\ControlCar\bin\Debug\ControlCar.exe
+D:\Documents\Git\AutoSafe\ControlCar\ControlCar\bin\Debug\ControlCar.pdb
+D:\Documents\Git\AutoSafe\ControlCar\ControlCar\obj\Debug\ControlCar.exe
+D:\Documents\Git\AutoSafe\ControlCar\ControlCar\obj\Debug\ControlCar.pdb
+D:\Documents\Git\AutoSafe\ControlCar\ControlCar\obj\Debug\ControlCar.connectForm.resources
