@@ -35,9 +35,21 @@
             this.button_connect = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button_forward = new System.Windows.Forms.Button();
+            this.button_left = new System.Windows.Forms.Button();
+            this.button_right = new System.Windows.Forms.Button();
+            this.button_backward = new System.Windows.Forms.Button();
+            this.group_control = new System.Windows.Forms.GroupBox();
+            this.button_brake = new System.Windows.Forms.Button();
+            this.button_emergencyBrake = new System.Windows.Forms.Button();
+            this.textBox_console = new System.Windows.Forms.TextBox();
+            this.numeric_speed = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_port)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.group_control.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric_speed)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox_ip
@@ -110,11 +122,114 @@
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
             // 
+            // button_forward
+            // 
+            this.button_forward.Location = new System.Drawing.Point(147, 19);
+            this.button_forward.Name = "button_forward";
+            this.button_forward.Size = new System.Drawing.Size(75, 68);
+            this.button_forward.TabIndex = 7;
+            this.button_forward.Text = "Forward";
+            this.button_forward.UseVisualStyleBackColor = true;
+            this.button_forward.Click += new System.EventHandler(this.button_forward_Click);
+            // 
+            // button_left
+            // 
+            this.button_left.Location = new System.Drawing.Point(50, 107);
+            this.button_left.Name = "button_left";
+            this.button_left.Size = new System.Drawing.Size(75, 68);
+            this.button_left.TabIndex = 8;
+            this.button_left.Text = "Left";
+            this.button_left.UseVisualStyleBackColor = true;
+            // 
+            // button_right
+            // 
+            this.button_right.Location = new System.Drawing.Point(247, 107);
+            this.button_right.Name = "button_right";
+            this.button_right.Size = new System.Drawing.Size(75, 68);
+            this.button_right.TabIndex = 9;
+            this.button_right.Text = "Right";
+            this.button_right.UseVisualStyleBackColor = true;
+            // 
+            // button_backward
+            // 
+            this.button_backward.Location = new System.Drawing.Point(147, 192);
+            this.button_backward.Name = "button_backward";
+            this.button_backward.Size = new System.Drawing.Size(75, 68);
+            this.button_backward.TabIndex = 10;
+            this.button_backward.Text = "Backward";
+            this.button_backward.UseVisualStyleBackColor = true;
+            // 
+            // group_control
+            // 
+            this.group_control.Controls.Add(this.label3);
+            this.group_control.Controls.Add(this.numeric_speed);
+            this.group_control.Controls.Add(this.button_emergencyBrake);
+            this.group_control.Controls.Add(this.button_brake);
+            this.group_control.Controls.Add(this.button_forward);
+            this.group_control.Controls.Add(this.button_left);
+            this.group_control.Controls.Add(this.button_backward);
+            this.group_control.Controls.Add(this.button_right);
+            this.group_control.Location = new System.Drawing.Point(12, 189);
+            this.group_control.Name = "group_control";
+            this.group_control.Size = new System.Drawing.Size(526, 277);
+            this.group_control.TabIndex = 11;
+            this.group_control.TabStop = false;
+            this.group_control.Text = "Control";
+            // 
+            // button_brake
+            // 
+            this.button_brake.Location = new System.Drawing.Point(398, 84);
+            this.button_brake.Name = "button_brake";
+            this.button_brake.Size = new System.Drawing.Size(111, 33);
+            this.button_brake.TabIndex = 11;
+            this.button_brake.Text = "Brake";
+            this.button_brake.UseVisualStyleBackColor = true;
+            // 
+            // button_emergencyBrake
+            // 
+            this.button_emergencyBrake.Location = new System.Drawing.Point(398, 137);
+            this.button_emergencyBrake.Name = "button_emergencyBrake";
+            this.button_emergencyBrake.Size = new System.Drawing.Size(111, 38);
+            this.button_emergencyBrake.TabIndex = 12;
+            this.button_emergencyBrake.Text = "Emergency Brake";
+            this.button_emergencyBrake.UseVisualStyleBackColor = true;
+            // 
+            // textBox_console
+            // 
+            this.textBox_console.Location = new System.Drawing.Point(544, 189);
+            this.textBox_console.Multiline = true;
+            this.textBox_console.Name = "textBox_console";
+            this.textBox_console.Size = new System.Drawing.Size(191, 277);
+            this.textBox_console.TabIndex = 13;
+            // 
+            // numeric_speed
+            // 
+            this.numeric_speed.Location = new System.Drawing.Point(389, 19);
+            this.numeric_speed.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.numeric_speed.Name = "numeric_speed";
+            this.numeric_speed.Size = new System.Drawing.Size(120, 20);
+            this.numeric_speed.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(342, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Speed:";
+            // 
             // connectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(895, 581);
+            this.Controls.Add(this.textBox_console);
+            this.Controls.Add(this.group_control);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.Name = "connectForm";
@@ -123,7 +238,11 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.group_control.ResumeLayout(false);
+            this.group_control.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric_speed)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -136,6 +255,16 @@
         private System.Windows.Forms.Button button_connect;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button button_forward;
+        private System.Windows.Forms.Button button_left;
+        private System.Windows.Forms.Button button_right;
+        private System.Windows.Forms.Button button_backward;
+        private System.Windows.Forms.GroupBox group_control;
+        private System.Windows.Forms.Button button_emergencyBrake;
+        private System.Windows.Forms.Button button_brake;
+        private System.Windows.Forms.TextBox textBox_console;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown numeric_speed;
     }
 }
 

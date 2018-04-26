@@ -12,6 +12,7 @@ namespace ControlCar
     {
         private TcpClient socketClient;
         private NetworkStream tcpStream;
+        private byte currentSpeed;
 
         public string IP { get; private set; }
         public int Port { get; private set; }
@@ -27,11 +28,35 @@ namespace ControlCar
             tcpStream.Write(data, 0, data.Length);
         }
 
-        public void SendSpeed(int commandNumber, byte speed)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="commandNumber"> Choose forward/backward/left/right/brake </param>
+        /// <param name="speed"> speed in byte </param>
+        /// <returns> Succes condition </returns>
+        public int SendSpeed(int commandNumber, byte speed)
         {
             byte catCmd = Convert.ToByte(224 + commandNumber);
-            byte[] data = { 0x0E, 0xE0, 0x06, catCmd, 0x00, speed };
-            tcpStream.Write(data, 0, data.Length);
+            try
+            {
+                if (speed != currentSpeed)
+                {
+                    byte[] data = { 0x0E, 0xE0, 0x06, catCmd, 0x00, speed };
+                    tcpStream.Write(data, 0, data.Length);
+                }
+                else
+                {
+                    byte[] data = { 0x0E, 0xE0, 0x04, catCmd };
+                    tcpStream.Write(data, 0, data.Length);
+                }
+                currentSpeed = speed;
+                return 1;
+            }
+            catch
+            {
+                return 0;
+            }
+
         }
 
         public void SendLocation(int commandNumber, int location)
@@ -51,15 +76,15 @@ namespace ControlCar
                 socketClient.Connect(IPAddress.Parse(ip), port);
                 tcpStream = socketClient.GetStream();
             }
-            catch(SocketException)
+            catch(SocketException ex)
             {
                 socketClient.Close();
-                throw new ArgumentException("Could not connect\nConnection failed");
+                throw new ArgumentException("Connection failed", ex);
             }
-            catch(FormatException)
+            catch(FormatException ex)
             {
                 socketClient.Close();
-                throw new ArgumentException("Ip or port format not correct");
+                throw new FormatException("Ip or port format not correct", ex);
             }
         }
 

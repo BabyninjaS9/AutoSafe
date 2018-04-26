@@ -13,9 +13,11 @@ namespace ControlCar
     public partial class connectForm : Form
     {
         ControlClient client = new ControlClient();
+        byte speed = 0;
         public connectForm()
         {
             InitializeComponent();
+            group_control.Enabled = false;
         }
 
         private void button_connect_Click(object sender, EventArgs e)
@@ -25,10 +27,34 @@ namespace ControlCar
             try
             {
                 client.Connect(ip, port);
+                group_control.Enabled = true;
             }
-            catch(Exception ex)
+            catch(ArgumentException ex)
             {
-                MessageBox.Show(ex.Message);
+                printToTextbox(ex.Message);
+            }
+            catch(FormatException ex)
+            {
+                printToTextbox(ex.Message);
+            }
+
+        }
+
+        private void printToTextbox(string tekst)
+        {
+            textBox_console.AppendText(tekst + "\n");
+        }
+
+        private void button_forward_Click(object sender, EventArgs e)
+        {
+            speed = (byte)numeric_speed.Value;
+            if(client.SendSpeed(2, speed) == 1)
+            {
+                printToTextbox("Forward sent");
+            }
+            else
+            {
+                printToTextbox("Sending forward failed");
             }
         }
     }
