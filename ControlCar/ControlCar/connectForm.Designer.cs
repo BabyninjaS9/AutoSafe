@@ -40,11 +40,11 @@
             this.button_right = new System.Windows.Forms.Button();
             this.button_backward = new System.Windows.Forms.Button();
             this.group_control = new System.Windows.Forms.GroupBox();
-            this.button_brake = new System.Windows.Forms.Button();
-            this.button_emergencyBrake = new System.Windows.Forms.Button();
-            this.textBox_console = new System.Windows.Forms.TextBox();
-            this.numeric_speed = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.numeric_speed = new System.Windows.Forms.NumericUpDown();
+            this.button_emergencyBrake = new System.Windows.Forms.Button();
+            this.button_brake = new System.Windows.Forms.Button();
+            this.textBox_console = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_port)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -116,7 +116,7 @@
             // 
             this.pictureBox1.BackgroundImage = global::ControlCar.Properties.Resources.Logo___Text;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(707, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(634, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(176, 143);
             this.pictureBox1.TabIndex = 6;
@@ -140,6 +140,7 @@
             this.button_left.TabIndex = 8;
             this.button_left.Text = "Left";
             this.button_left.UseVisualStyleBackColor = true;
+            this.button_left.Click += new System.EventHandler(this.button_left_Click);
             // 
             // button_right
             // 
@@ -149,6 +150,7 @@
             this.button_right.TabIndex = 9;
             this.button_right.Text = "Right";
             this.button_right.UseVisualStyleBackColor = true;
+            this.button_right.Click += new System.EventHandler(this.button_right_Click);
             // 
             // button_backward
             // 
@@ -158,6 +160,7 @@
             this.button_backward.TabIndex = 10;
             this.button_backward.Text = "Backward";
             this.button_backward.UseVisualStyleBackColor = true;
+            this.button_backward.Click += new System.EventHandler(this.button_backward_Click);
             // 
             // group_control
             // 
@@ -176,31 +179,14 @@
             this.group_control.TabStop = false;
             this.group_control.Text = "Control";
             // 
-            // button_brake
+            // label3
             // 
-            this.button_brake.Location = new System.Drawing.Point(398, 84);
-            this.button_brake.Name = "button_brake";
-            this.button_brake.Size = new System.Drawing.Size(111, 33);
-            this.button_brake.TabIndex = 11;
-            this.button_brake.Text = "Brake";
-            this.button_brake.UseVisualStyleBackColor = true;
-            // 
-            // button_emergencyBrake
-            // 
-            this.button_emergencyBrake.Location = new System.Drawing.Point(398, 137);
-            this.button_emergencyBrake.Name = "button_emergencyBrake";
-            this.button_emergencyBrake.Size = new System.Drawing.Size(111, 38);
-            this.button_emergencyBrake.TabIndex = 12;
-            this.button_emergencyBrake.Text = "Emergency Brake";
-            this.button_emergencyBrake.UseVisualStyleBackColor = true;
-            // 
-            // textBox_console
-            // 
-            this.textBox_console.Location = new System.Drawing.Point(544, 189);
-            this.textBox_console.Multiline = true;
-            this.textBox_console.Name = "textBox_console";
-            this.textBox_console.Size = new System.Drawing.Size(191, 277);
-            this.textBox_console.TabIndex = 13;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(342, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Speed:";
             // 
             // numeric_speed
             // 
@@ -214,20 +200,40 @@
             this.numeric_speed.Size = new System.Drawing.Size(120, 20);
             this.numeric_speed.TabIndex = 13;
             // 
-            // label3
+            // button_emergencyBrake
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(342, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Speed:";
+            this.button_emergencyBrake.Location = new System.Drawing.Point(398, 137);
+            this.button_emergencyBrake.Name = "button_emergencyBrake";
+            this.button_emergencyBrake.Size = new System.Drawing.Size(111, 38);
+            this.button_emergencyBrake.TabIndex = 12;
+            this.button_emergencyBrake.Text = "Emergency Brake";
+            this.button_emergencyBrake.UseVisualStyleBackColor = true;
+            this.button_emergencyBrake.Click += new System.EventHandler(this.button_emergencyBrake_Click);
+            // 
+            // button_brake
+            // 
+            this.button_brake.Location = new System.Drawing.Point(398, 84);
+            this.button_brake.Name = "button_brake";
+            this.button_brake.Size = new System.Drawing.Size(111, 33);
+            this.button_brake.TabIndex = 11;
+            this.button_brake.Text = "Brake";
+            this.button_brake.UseVisualStyleBackColor = true;
+            this.button_brake.Click += new System.EventHandler(this.button_brake_Click);
+            // 
+            // textBox_console
+            // 
+            this.textBox_console.Location = new System.Drawing.Point(544, 189);
+            this.textBox_console.Multiline = true;
+            this.textBox_console.Name = "textBox_console";
+            this.textBox_console.ReadOnly = true;
+            this.textBox_console.Size = new System.Drawing.Size(266, 277);
+            this.textBox_console.TabIndex = 13;
             // 
             // connectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(895, 581);
+            this.ClientSize = new System.Drawing.Size(822, 477);
             this.Controls.Add(this.textBox_console);
             this.Controls.Add(this.group_control);
             this.Controls.Add(this.pictureBox1);

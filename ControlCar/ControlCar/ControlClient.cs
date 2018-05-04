@@ -22,6 +22,10 @@ namespace ControlCar
             socketClient = new TcpClient();
         }
 
+        /// <summary>
+        /// Used for sending a command
+        /// </summary>
+        /// <param name="command"> Just a string for a random command for testing or something</param>
         public void Send(string command)
         {
             byte[] data = Encoding.ASCII.GetBytes(command);
@@ -29,7 +33,7 @@ namespace ControlCar
         }
 
         /// <summary>
-        /// 
+        /// Used for sending direction and speed with it.
         /// </summary>
         /// <param name="commandNumber"> Choose forward/backward/left/right/brake </param>
         /// <param name="speed"> speed in byte </param>
@@ -65,6 +69,11 @@ namespace ControlCar
             tcpStream.Write(data, 0, data.Length);
         }
 
+        /// <summary>
+        /// The process of connecting to wifi module
+        /// </summary>
+        /// <param name="ip"> ip-addres in string </param>
+        /// <param name="port"> port in int </param>
         public void Connect(string ip, int port)
         {
             socketClient.Close();
