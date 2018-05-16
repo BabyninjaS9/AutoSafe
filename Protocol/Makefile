@@ -1,5 +1,5 @@
 # options
-CC=clang
+CC=gcc
 CFLAGS=-g -Wall -Werror -Wno-missing-field-initializers
 TARGET=autosafe
 
