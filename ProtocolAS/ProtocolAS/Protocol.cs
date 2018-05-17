@@ -64,7 +64,7 @@ namespace ProtocolAS
         /// <param name="Payload">Payload - n × 16 bit, Arbitrary number of data bytes carried by the packet.This must be interpreted depending on the command. </param>
         /// <param name="Checksum">Checksum - 16 bits, Checksum of the complete packet computed using the Fletcher-16 algorithm.This is used to detect if the packet was corrupted.</param>
         /// <returns>het gehele bericht</returns>
-        public byte[] serialize(byte Magic, byte Length, byte Cat, byte Cmd, byte Payload, byte Checksum)
+        public byte[] serialize(byte Magic, byte Length, byte Cat, byte Cmd, byte[] Payload, byte Checksum)
         {
             int magic1 = bitmask & (Magic >> 8); //1e deel magic
             int magic2 = bitmask & (Magic); //2e deel magic
@@ -99,11 +99,11 @@ namespace ProtocolAS
         /// <param name="Payload"> De informatie die moet woorden geknipt</param>
         /// <param name="payloadvalue"> de hoeveelheid bytes die de message inclusief de header zal krijgen</param>
         /// <returns>alle payload bytes geknipt om in de byte array mee te sturen</returns>
-        public byte[] split(byte Payload, int payloadvalue)
+        public byte[] split(byte[] Payload, int payloadvalue)
         {
             for (int i = 0; i < payloadvalue; i++)
             {
-                payloadn[i] = (byte)(bitmask & (Payload << i * 8));
+                payloadn[i] = (byte)(bitmask & (Payload[i] << i * 8));
             }
             return payloadn;
         }
