@@ -64,18 +64,18 @@ namespace ProtocolAS
         /// <param name="Payload">Payload - n × 16 bit, Arbitrary number of data bytes carried by the packet.This must be interpreted depending on the command. </param>
         /// <param name="Checksum">Checksum - 16 bits, Checksum of the complete packet computed using the Fletcher-16 algorithm.This is used to detect if the packet was corrupted.</param>
         /// <returns>het gehele bericht</returns>
-        public byte[] serialize(byte Magic, byte Length, byte Cat, byte Cmd, byte Payload, byte Checksum)
+        public byte[] serialize(byte Magic, byte Length, byte Cat, byte Cmd, byte[] Payload, byte Checksum)
         {
-            int magic1 = bitmask & (Magic << 8); //1e deel magic
-            int magic2 = bitmask & (Magic << 16); //2e deel magic
+            int magic1 = bitmask & (Magic >> 8); //1e deel magic
+            int magic2 = bitmask & (Magic); //2e deel magic
 
             int payloadvalue = Length - 6;  //rekent lengte uit, 6 vanwege 6 bytes kwijt aan Magic, Length, Cat+Cmd, Checksum
 
             int newbitmask = bitmask & ((byte)Cat << 5); //Cat naar 1e index
-            newbitmask = newbitmask & (Cmd << 3); //cmd naar zijn index
+            newbitmask = newbitmask | (Cmd); //cmd naar zijn index
 
-            int check1 = bitmask & (Checksum << 8); //1e deel checksum
-            int check2 = bitmask & (Checksum << 16); //2e deel checksum
+            int check1 = bitmask & (Checksum >> 8); //1e deel checksum
+            int check2 = bitmask & (Checksum); //2e deel checksum
 
             byte[] x = split(Payload, payloadvalue); //splitst payload in bytes
 
@@ -99,11 +99,11 @@ namespace ProtocolAS
         /// <param name="Payload"> De informatie die moet woorden geknipt</param>
         /// <param name="payloadvalue"> de hoeveelheid bytes die de message inclusief de header zal krijgen</param>
         /// <returns>alle payload bytes geknipt om in de byte array mee te sturen</returns>
-        public byte[] split(byte Payload, int payloadvalue)
+        public byte[] split(byte[] Payload, int payloadvalue)
         {
             for (int i = 0; i < payloadvalue; i++)
             {
-                payloadn[i] = (byte)(bitmask & (Payload << i * 8));
+                payloadn[i] = (byte)(bitmask & (Payload[i] << i * 8));
             }
             return payloadn;
         }
@@ -116,13 +116,13 @@ namespace ProtocolAS
         {
             int magicx = message[0]; //1e deel magic
             int magicy = message[1]; //2e deel magic
-            magic = (byte)(bitmask & (magicx << 16)); //maakt van magic 1 grote byte
-            magic = (byte)(magic & (magicy << 8)); //idem
+            magic = (byte)(bitmask & (magicx << 8)); //maakt van magic 1 grote byte
+            magic = (byte)(magic | (magicy)); //idem
 
             length = message[2]; //lengte van bericht
             int catandcmd = message[3]; //cat en cmd 
-            cat = (byte)(bitmask & (catandcmd >> 5)); //zet categorie
-            cmd = (byte)(bitmask & (catandcmd >> 3)); //zet bericht
+            cat = (byte)(bitmask & (catandcmd >> 3)); //zet categorie
+            cmd = (byte)(0b00000111 & (catandcmd)); //zet bericht
 
             byte[] x = paste(message, length); //maakt losse bytes van de payload voor om uit te lezen
             for (int i = 4; i < (length + 4) - 1; i++)
@@ -131,8 +131,8 @@ namespace ProtocolAS
             }
             int checkx = message[length - 1]; //1e deel checksum
             int checky = message[length]; //2e deel checksum
-            checksum = (byte)(bitmask & (checkx << 16)); //maakt in checksum hele verhaal
-            checksum = (byte)(checksum & (checky << 8)); //idem
+            checksum = (byte)(bitmask & (checkx << 8)); //maakt in checksum hele verhaal
+            checksum = (byte)(checksum|(checky)); //idem
         }
 
         /// <summary>
