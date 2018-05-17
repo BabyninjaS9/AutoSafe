@@ -16,7 +16,9 @@ namespace ControlCar
         public connectForm()
         {
             InitializeComponent();
-            //group_control.Enabled = false;
+            group_control.Enabled = false;
+            textBox_ip.Text = "192.168.4.1";
+            numeric_port.Value = 23;
         }
 
         private void button_connect_Click(object sender, EventArgs e)
@@ -28,6 +30,7 @@ namespace ControlCar
                 carController.Connect(ip, port);
                 group_control.Enabled = true;
                 printToTextbox(carController.ToString());
+                groupBox_connect.Enabled = false;
             }
             catch(ArgumentException ex)
             {
@@ -121,6 +124,14 @@ namespace ControlCar
             {
                 printToTextbox("Sending emergency brake failed");
             }
+        }
+
+        private void button_disconnect_Click(object sender, EventArgs e)
+        {
+            carController.Disconnect();
+            groupBox_connect.Enabled = true;
+            group_control.Enabled = false;
+            printToTextbox("Disconnected");
         }
     }
 }
