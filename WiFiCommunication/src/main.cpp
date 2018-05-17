@@ -15,12 +15,10 @@
 WiFiServer server(23);
 WiFiClient clients[MAX_CLIENTS];
 
-enum operating_mode {
-    OPERATING_MODE_SERVER,
-    OPERATING_MODE_CLIENT
-};
+static void (*mode)(void);
 
-static enum operating_mode mode;
+static void serverMode(void);
+static void clientMode(void);
 
 void setup(void)
 {
@@ -39,9 +37,9 @@ void setup(void)
         Serial.print("IP address: ");
         Serial.println(WiFi.softAPIP());
 
-        mode = OPERATING_MODE_SERVER;
+        mode = serverMode;
     } else {
-        mode = OPERATING_MODE_CLIENT;
+        mode = clientMode;
     }
 }
 
@@ -109,16 +107,5 @@ static void clientMode(void)
 
 void loop(void)
 {
-    switch (mode) {
-    case OPERATING_MODE_SERVER:
-        serverMode();
-        break;
-
-    case OPERATING_MODE_CLIENT:
-        clientMode();
-        break;
-
-    default:
-        break;
-    }
+    (*mode)();
 }
