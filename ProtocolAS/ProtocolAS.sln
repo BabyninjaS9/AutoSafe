@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtocolAS", "ProtocolAS\ProtocolAS.csproj", "{52327000-AD56-474C-951E-F7106862CAAC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProtocol", "TestProtocol\TestProtocol.csproj", "{2B768A9B-A5BA-4A1A-87CC-9D74F60D1FFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{52327000-AD56-474C-951E-F7106862CAAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{52327000-AD56-474C-951E-F7106862CAAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{52327000-AD56-474C-951E-F7106862CAAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B768A9B-A5BA-4A1A-87CC-9D74F60D1FFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B768A9B-A5BA-4A1A-87CC-9D74F60D1FFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B768A9B-A5BA-4A1A-87CC-9D74F60D1FFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B768A9B-A5BA-4A1A-87CC-9D74F60D1FFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
