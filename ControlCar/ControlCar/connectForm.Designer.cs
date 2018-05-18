@@ -33,7 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.numeric_port = new System.Windows.Forms.NumericUpDown();
             this.button_connect = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox_connect = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button_forward = new System.Windows.Forms.Button();
             this.button_left = new System.Windows.Forms.Button();
@@ -45,8 +45,9 @@
             this.button_emergencyBrake = new System.Windows.Forms.Button();
             this.button_brake = new System.Windows.Forms.Button();
             this.textBox_console = new System.Windows.Forms.TextBox();
+            this.button_disconnect = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_port)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupBox_connect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.group_control.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_speed)).BeginInit();
@@ -99,21 +100,22 @@
             this.button_connect.UseVisualStyleBackColor = true;
             this.button_connect.Click += new System.EventHandler(this.button_connect_Click);
             // 
-            // groupBox1
+            // groupBox_connect
             // 
-            this.groupBox1.Controls.Add(this.button_connect);
-            this.groupBox1.Controls.Add(this.textBox_ip);
-            this.groupBox1.Controls.Add(this.numeric_port);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(247, 87);
-            this.groupBox1.TabIndex = 5;
-            this.groupBox1.TabStop = false;
+            this.groupBox_connect.Controls.Add(this.button_connect);
+            this.groupBox_connect.Controls.Add(this.textBox_ip);
+            this.groupBox_connect.Controls.Add(this.numeric_port);
+            this.groupBox_connect.Controls.Add(this.label1);
+            this.groupBox_connect.Controls.Add(this.label2);
+            this.groupBox_connect.Location = new System.Drawing.Point(12, 12);
+            this.groupBox_connect.Name = "groupBox_connect";
+            this.groupBox_connect.Size = new System.Drawing.Size(247, 87);
+            this.groupBox_connect.TabIndex = 5;
+            this.groupBox_connect.TabStop = false;
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackgroundImage = global::ControlCar.Properties.Resources.Logo___Text;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(634, 12);
@@ -164,6 +166,10 @@
             // 
             // group_control
             // 
+            this.group_control.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.group_control.Controls.Add(this.button_disconnect);
             this.group_control.Controls.Add(this.label3);
             this.group_control.Controls.Add(this.numeric_speed);
             this.group_control.Controls.Add(this.button_emergencyBrake);
@@ -222,12 +228,24 @@
             // 
             // textBox_console
             // 
+            this.textBox_console.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_console.Location = new System.Drawing.Point(544, 189);
             this.textBox_console.Multiline = true;
             this.textBox_console.Name = "textBox_console";
             this.textBox_console.ReadOnly = true;
             this.textBox_console.Size = new System.Drawing.Size(266, 277);
             this.textBox_console.TabIndex = 13;
+            // 
+            // button_disconnect
+            // 
+            this.button_disconnect.Location = new System.Drawing.Point(431, 237);
+            this.button_disconnect.Name = "button_disconnect";
+            this.button_disconnect.Size = new System.Drawing.Size(89, 34);
+            this.button_disconnect.TabIndex = 15;
+            this.button_disconnect.Text = "Disconnect";
+            this.button_disconnect.UseVisualStyleBackColor = true;
+            this.button_disconnect.Click += new System.EventHandler(this.button_disconnect_Click);
             // 
             // connectForm
             // 
@@ -237,12 +255,13 @@
             this.Controls.Add(this.textBox_console);
             this.Controls.Add(this.group_control);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox_connect);
+            this.MinimumSize = new System.Drawing.Size(830, 503);
             this.Name = "connectForm";
             this.Text = "Connect to AutoSafe";
             ((System.ComponentModel.ISupportInitialize)(this.numeric_port)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBox_connect.ResumeLayout(false);
+            this.groupBox_connect.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.group_control.ResumeLayout(false);
             this.group_control.PerformLayout();
@@ -259,7 +278,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numeric_port;
         private System.Windows.Forms.Button button_connect;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox_connect;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button button_forward;
         private System.Windows.Forms.Button button_left;
@@ -271,6 +290,7 @@
         private System.Windows.Forms.TextBox textBox_console;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown numeric_speed;
+        private System.Windows.Forms.Button button_disconnect;
     }
 }
 
