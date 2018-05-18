@@ -1,17 +1,18 @@
 #include <Arduino.h>
 #include <functions.h>
+#include <protocol.h>
 
 #include <Pixy.h>
 
 Pixy pixy;
 
+unsigned long lastPrintMillis = 0;
+
 typedef struct{
-  int signatureID;
+  uint8_t signatureID;
   //arrays to calculate moving average
-  int X[10];
-  int Y[10];
-  int with[10];
-  int height[10];
+  uint16_t X[10];
+  uint16_t Y[10];
 }SignatureData;
 
 SignatureData allSignatureData[7] = {
@@ -59,6 +60,45 @@ void processData(Pixy* pixyCam, int count){
       allSignatureData[i].Y[0] = totalY / numberOfBlocks;
     }
     //Repeat for every signature in array
+  }
+}
+
+//Sends the position data according to the protocol
+void sendPositionProtocol(SignatureData* data, int count){
+  //data [signature] 1 byte [X] 2 bytes [Y] 2 bytes
+  uint8_t packetData[count * 5];
+  for(int i = 0; i < count; i++){
+    uint16_t totalX = 0;
+    uint16_t totalY = 0;
+    for(int j = 0; j < 10; j++){
+      totalX += data[i].X[j];
+      totalY += data[i].Y[j];
+    }
+    uint16_t X = totalX / 10;
+    uint16_t Y = totalY / 10;
+
+    packetData[i * 5] = (data[i].signatureID);
+    packetData[i * 5 + 1] = X & 0x0F;
+    packetData[i * 5 + 2] = X >> 8;
+    packetData[i * 5 + 3] = Y & 0x0F;
+    packetData[i * 5 + 4] = Y >> 8;
+  }
+
+  struct packet packet =
+  {
+    .magic =  0x0EE0,
+    .length = uint16_t(count * 5 + 6),
+    .category = 1,
+    .command = 5,
+    .payload = packetData,
+    .checksum = 0
+  };
+  uint8_t serialData;
+  size_t size;
+  if(packet_serialize(&packet, &serialData, &size) == 0){
+    for(unsigned int i = 0; i < size; i++){
+      Serial.write((&serialData)[i]);
+    }
   }
 }
 
@@ -112,7 +152,9 @@ void loop()
     int count = pixy.getBlocks();
     //printBlocksXY(&pixy, count);
     processData(&pixy, count);
-    printSignatures(allSignatureData, 7);
+    if(lastPrintMillis < millis() - 1000){
+      lastPrintMillis = millis();
+      printSignatures(allSignatureData, 7);
+    }
     //printSignaturePos(&pixy, count, 1, 0);
-    delay(500);
 }

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace ProtocolAS
 {
-        /*Fields
+        /* Fields
          * 
-         *Magic - 16 bits
-         *Indicates the start of a new packet; it has the value 0x0EE0.
+         * Magic - 16 bits
+         * Indicates the start of a new packet; it has the value 0x0EE0.
          * 
-         *Length - 8 bits
-         *Represents the number of bytes in the packet (including the header and checksum).
+         * Length - 8 bits
+         * Represents the number of bytes in the packet (including the header and checksum).
          * 
          * Cat - 3 bits
          * The category of the command (see Categories). A receiver must ignore a packet if it doesn’t recognize the category.
