@@ -42,6 +42,8 @@ struct packet
 /**
  * Serializes the provided packet into a byte stream.
  *
+ * The data must have memory allocated before calling this function.
+ *
  * @param packet Packet to convert into a byte stream.
  * @param data   Destination of the byte stream.
  * @Param size   Destination of the byte stream size.
@@ -60,6 +62,13 @@ int packet_serialize(struct packet* packet, uint8_t* data, size_t* size);
  * @return 0 on success, otherwise -1.
  */
 int packet_deserialize(struct packet* packet, const uint8_t* data, const size_t size);
+
+/**
+ * Free a packet data structure from memory.
+ *
+ * @param packet Packet to free.
+ */
+void packet_free(struct packet* packet);
 
 #ifdef __cplusplus
 }
