@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2009
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTT2CarGps", "PTT2CarGps\PTT2CarGps.csproj", "{C33E9D72-CD63-4218-8287-39DB435C4490}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarGpsTests", "CarGpsTests\CarGpsTests.csproj", "{A35B5B1C-1A67-4764-AABA-6D26E2D4127C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C33E9D72-CD63-4218-8287-39DB435C4490}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C33E9D72-CD63-4218-8287-39DB435C4490}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C33E9D72-CD63-4218-8287-39DB435C4490}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C33E9D72-CD63-4218-8287-39DB435C4490}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A35B5B1C-1A67-4764-AABA-6D26E2D4127C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A35B5B1C-1A67-4764-AABA-6D26E2D4127C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A35B5B1C-1A67-4764-AABA-6D26E2D4127C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A35B5B1C-1A67-4764-AABA-6D26E2D4127C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BE83726C-44CA-45AB-A318-F5C2B28B64E8}
+	EndGlobalSection
+EndGlobal

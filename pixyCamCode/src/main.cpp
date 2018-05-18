@@ -68,6 +68,7 @@ void sendPositionProtocol(SignatureData* data, int count){
   //data [signature] 1 byte [X] 2 bytes [Y] 2 bytes
   uint8_t packetData[count * 5];
   for(int i = 0; i < count; i++){
+    //Get moving average X and Y
     uint16_t totalX = 0;
     uint16_t totalY = 0;
     for(int j = 0; j < 10; j++){
@@ -77,6 +78,7 @@ void sendPositionProtocol(SignatureData* data, int count){
     uint16_t X = totalX / 10;
     uint16_t Y = totalY / 10;
 
+    //Create data
     packetData[i * 5] = (data[i].signatureID);
     packetData[i * 5 + 1] = X & 0x0F;
     packetData[i * 5 + 2] = X >> 8;
@@ -84,6 +86,7 @@ void sendPositionProtocol(SignatureData* data, int count){
     packetData[i * 5 + 4] = Y >> 8;
   }
 
+  //Make data packet
   struct packet packet =
   {
     .magic =  0x0EE0,
@@ -93,9 +96,12 @@ void sendPositionProtocol(SignatureData* data, int count){
     .payload = packetData,
     .checksum = 0
   };
+
+  //serialize data
   uint8_t serialData;
   size_t size;
   if(packet_serialize(&packet, &serialData, &size) == 0){
+    //send data
     for(unsigned int i = 0; i < size; i++){
       Serial.write((&serialData)[i]);
     }
