@@ -42,6 +42,8 @@ struct packet
 /**
  * Serializes the provided packet into a byte stream.
  *
+ * The data must have memory allocated before calling this function.
+ *
  * @param packet Packet to convert into a byte stream.
  * @param data   Destination of the byte stream.
  * @Param size   Destination of the byte stream size.
