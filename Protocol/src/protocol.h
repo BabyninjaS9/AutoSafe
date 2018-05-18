@@ -46,7 +46,7 @@ struct packet
  *
  * @param packet Packet to convert into a byte stream.
  * @param data   Destination of the byte stream.
- * @Param size   Destination of the byte stream size.
+ * @param size   Destination of the byte stream size.
  *
  * @return 0 on success, otherwise -1.
  */
