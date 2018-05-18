@@ -79,3 +79,14 @@ int packet_deserialize(struct packet* packet, const uint8_t* data, const size_t 
 
     return 0;
 }
+
+void packet_free(struct packet* packet)
+{
+    if (packet != NULL) {
+        if (packet->payload != NULL) {
+            free(packet->payload);
+        }
+
+        free(packet);
+    }
+}

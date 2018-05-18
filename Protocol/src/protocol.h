@@ -63,6 +63,13 @@ int packet_serialize(struct packet* packet, uint8_t* data, size_t* size);
  */
 int packet_deserialize(struct packet* packet, const uint8_t* data, const size_t size);
 
+/**
+ * Free a packet data structure from memory.
+ *
+ * @param packet Packet to free.
+ */
+void packet_free(struct packet* packet);
+
 #ifdef __cplusplus
 }
 #endif
