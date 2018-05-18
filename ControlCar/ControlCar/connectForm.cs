@@ -7,40 +7,64 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Sockets;
 
 namespace ControlCar
 {
     public partial class connectForm : Form
     {
         ControlClient carController = new ControlClient();
+        Timer refreshTimer = new Timer();
         public connectForm()
         {
             InitializeComponent();
             group_control.Enabled = false;
             textBox_ip.Text = "192.168.4.1";
             numeric_port.Value = 23;
+            refreshTimer.Tick += new EventHandler(refreshTheStatus);
+            refreshTimer.Interval = 5000;
+            refreshTimer.Start();
+            label_status.Text = carController.ToString();
         }
 
-        private void button_connect_Click(object sender, EventArgs e)
+        private void refreshTheStatus(object sender, EventArgs e)
         {
+            label_status.Text = carController.ToString();
+        }
+
+        private async void button_connect_Click(object sender, EventArgs e)
+        {
+            button_connect.Enabled = false;
+            refreshTimer.Stop();
             string ip = textBox_ip.Text;
             int port = (int)numeric_port.Value;
             try
             {
-                carController.Connect(ip, port);
+                printToTextbox("Trying to connect...");
+                await carController.Connect(ip, port);
                 group_control.Enabled = true;
-                printToTextbox(carController.ToString());
                 groupBox_connect.Enabled = false;
+                printToTextbox("Connected");
             }
-            catch(ArgumentException ex)
+            catch (SocketException)
             {
-                printToTextbox(ex.Message);
+                carController.Disconnect();
+                carController = new ControlClient();
+                printToTextbox("Connection failed");
             }
-            catch(FormatException ex)
+            catch (FormatException)
             {
-                printToTextbox(ex.Message);
+                carController.Disconnect();
+                carController = new ControlClient();
+                printToTextbox("Ip or port format not correct");
             }
-
+            finally
+            {
+                refreshTimer.Start();
+                button_connect.Enabled = true;
+            }
+            
         }
 
         private void printToTextbox(string tekst)

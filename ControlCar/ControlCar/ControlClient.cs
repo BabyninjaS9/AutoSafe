@@ -20,6 +20,8 @@ namespace ControlCar
         public ControlClient()
         {
             socketClient = new TcpClient();
+            IP = "0";
+            Port = 0;
         }
 
         /// <summary>
@@ -63,43 +65,28 @@ namespace ControlCar
 
         }
 
-        public void SendLocation(int commandNumber, int location)
-        {
-            byte[] data = { };
-            tcpStream.Write(data, 0, data.Length);
-        }
-
         /// <summary>
         /// The process of connecting to wifi module
         /// </summary>
         /// <param name="ip"> ip-addres in string </param>
         /// <param name="port"> port in int </param>
-        public void Connect(string ip, int port)
+        public async Task Connect(string ip, int port)
         {
-            socketClient.Close();
+            if (socketClient.Connected) { socketClient.Close(); }
+
             IP = ip;
             Port = port;
             socketClient = new TcpClient();
-            try
-            {
-                socketClient.Connect(IPAddress.Parse(ip), port);
-                tcpStream = socketClient.GetStream();
-            }
-            catch(SocketException ex)
-            {
-                socketClient.Close();
-                throw new ArgumentException("Connection failed", ex);
-            }
-            catch(FormatException ex)
-            {
-                socketClient.Close();
-                throw new FormatException("Ip or port format not correct", ex);
-            }
+
+            await socketClient.ConnectAsync(IPAddress.Parse(ip), port);
+            tcpStream = socketClient.GetStream();
         }
 
         public void Disconnect()
         {
-             socketClient.Close();
+            IP = "0";
+            Port = 0;
+            socketClient.Close();
         }
 
         public override string ToString()
@@ -107,8 +94,8 @@ namespace ControlCar
             try
             {
                 return "Connected: " + socketClient.Connected.ToString() +
-                        ", IP: " + IP +
-                        ", Port: " + Port;
+                        "\nIP: " + IP +
+                        "\nPort: " + Port;
             }
             catch
             {

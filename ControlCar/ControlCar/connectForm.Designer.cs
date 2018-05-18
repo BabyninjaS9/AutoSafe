@@ -40,12 +40,13 @@
             this.button_right = new System.Windows.Forms.Button();
             this.button_backward = new System.Windows.Forms.Button();
             this.group_control = new System.Windows.Forms.GroupBox();
+            this.button_disconnect = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.numeric_speed = new System.Windows.Forms.NumericUpDown();
             this.button_emergencyBrake = new System.Windows.Forms.Button();
             this.button_brake = new System.Windows.Forms.Button();
             this.textBox_console = new System.Windows.Forms.TextBox();
-            this.button_disconnect = new System.Windows.Forms.Button();
+            this.label_status = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numeric_port)).BeginInit();
             this.groupBox_connect.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -166,9 +167,8 @@
             // 
             // group_control
             // 
-            this.group_control.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.group_control.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.group_control.Controls.Add(this.button_disconnect);
             this.group_control.Controls.Add(this.label3);
             this.group_control.Controls.Add(this.numeric_speed);
@@ -184,6 +184,16 @@
             this.group_control.TabIndex = 11;
             this.group_control.TabStop = false;
             this.group_control.Text = "Control";
+            // 
+            // button_disconnect
+            // 
+            this.button_disconnect.Location = new System.Drawing.Point(431, 237);
+            this.button_disconnect.Name = "button_disconnect";
+            this.button_disconnect.Size = new System.Drawing.Size(89, 34);
+            this.button_disconnect.TabIndex = 15;
+            this.button_disconnect.Text = "Disconnect";
+            this.button_disconnect.UseVisualStyleBackColor = true;
+            this.button_disconnect.Click += new System.EventHandler(this.button_disconnect_Click);
             // 
             // label3
             // 
@@ -228,7 +238,8 @@
             // 
             // textBox_console
             // 
-            this.textBox_console.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.textBox_console.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox_console.Location = new System.Drawing.Point(544, 189);
             this.textBox_console.Multiline = true;
@@ -237,21 +248,20 @@
             this.textBox_console.Size = new System.Drawing.Size(266, 277);
             this.textBox_console.TabIndex = 13;
             // 
-            // button_disconnect
+            // label_status
             // 
-            this.button_disconnect.Location = new System.Drawing.Point(431, 237);
-            this.button_disconnect.Name = "button_disconnect";
-            this.button_disconnect.Size = new System.Drawing.Size(89, 34);
-            this.button_disconnect.TabIndex = 15;
-            this.button_disconnect.Text = "Disconnect";
-            this.button_disconnect.UseVisualStyleBackColor = true;
-            this.button_disconnect.Click += new System.EventHandler(this.button_disconnect_Click);
+            this.label_status.AutoSize = true;
+            this.label_status.Location = new System.Drawing.Point(12, 111);
+            this.label_status.Name = "label_status";
+            this.label_status.Size = new System.Drawing.Size(0, 13);
+            this.label_status.TabIndex = 15;
             // 
             // connectForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(822, 477);
+            this.Controls.Add(this.label_status);
             this.Controls.Add(this.textBox_console);
             this.Controls.Add(this.group_control);
             this.Controls.Add(this.pictureBox1);
@@ -291,6 +301,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown numeric_speed;
         private System.Windows.Forms.Button button_disconnect;
+        private System.Windows.Forms.Label label_status;
     }
 }
 
