@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace PTT2CarGps
 {
-    class Car
+    public class Car
     {
+        public int SignatureId { get; private set; }
+        public Trail Path { get; private set; }
+
+        public Car(int SignatureId)
+        {
+            this.SignatureId = SignatureId;
+            Path = new Trail();
+        }
     }
 }

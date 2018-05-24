@@ -80,9 +80,9 @@ void sendPositionProtocol(SignatureData* data, int count){
 
     //Create data
     packetData[i * 5] = (data[i].signatureID);
-    packetData[i * 5 + 1] = X & 0x0F;
+    packetData[i * 5 + 1] = X & 0x00FF;
     packetData[i * 5 + 2] = X >> 8;
-    packetData[i * 5 + 3] = Y & 0x0F;
+    packetData[i * 5 + 3] = Y & 0x00FF;
     packetData[i * 5 + 4] = Y >> 8;
   }
 
@@ -156,11 +156,9 @@ void printSignaturePos(Pixy* pixyCam, int count, int signature, int XorY){
 void loop()
 {
     int count = pixy.getBlocks();
-    //printBlocksXY(&pixy, count);
     processData(&pixy, count);
     if(lastPrintMillis < millis() - 1000){
       lastPrintMillis = millis();
-      printSignatures(allSignatureData, 7);
+      sendPositionProtocol(allSignatureData, 7);
     }
-    //printSignaturePos(&pixy, count, 1, 0);
 }

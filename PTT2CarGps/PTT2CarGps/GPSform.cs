@@ -15,27 +15,42 @@ namespace PTT2CarGps
     public partial class GPSform : Form
     {
         SerialPort port;
-        public List<Point[]> signatureTrails;
+        public List<Car> Cars;
         public GPSform()
         {
             InitializeComponent();
-            signatureTrails = new List<Point[]>();
+            Cars = new List<Car>();
             comPortCBB.DataSource = SerialPort.GetPortNames();
             readSerialTimer.Start();
+            AddCars();
         }
-
+        private void AddCars()
+        {
+            Random r = new Random();
+            for (int i = 0; i < 10; i++)
+            {
+                Car c = new Car(i);
+                Point p = new Point(r.Next(0, 500) + 50, r.Next(0, 300) + 50);
+                c.Path.AddPosition(p);
+                Cars.Add(c);
+            }
+        }
         private void TestTrailDrawing()
         {
             Random r = new Random();
-            for(int i = 0; i < 10; i++)
+            int[] signatures = new int[Cars.Count];
+            Point[] points = new Point[Cars.Count];
+            for (int i = 0; i < Cars.Count; i++)
             {
-                Point[] points = new Point[10];
-                for (int j = 0; j < 10; j++)
+                signatures[i] = i;
+                Point p = new Point
                 {
-                    points[j] = new Point(i * 50 + r.Next(0, 10), j * i * i + j + r.Next(0, 10));
-                }
-                AddPositions(points);
+                    X = Cars[i].Path.Position.X + r.Next(0, 21) - 10,
+                    Y = Cars[i].Path.Position.Y + r.Next(0, 21) - 10
+                };
+                points[i] = p;
             }
+            AddPositions(points, signatures);
             DrawPositions();
         }
 
@@ -110,31 +125,29 @@ namespace PTT2CarGps
             SetSerialPort();
         }
 
-        public void AddPositions(Point[] positions)
+        public void AddPositions(Point[] positions, int[] signatures)
         {
             //Check for errors
             if (positions == null) return;
+            if (positions.Length != signatures.Length) return;
 
-            //Create new signature trails if more positions are given
-            while(positions.Length > signatureTrails.Count)
+            //Update car positions
+            for(int i = 0; i < signatures.Length; i++)
             {
-                for(int i = 0; i < positions.Length - signatureTrails.Count; i++)
+                bool found = false;
+                //find car with right signature
+                foreach(Car c in Cars)
                 {
-                    signatureTrails.Add(new Point[10]);
+                    if (c.SignatureId == signatures[i])
+                    {
+                        //Add position
+                        found = true;
+                        c.Path.AddPosition(positions[i]);
+                        break;
+                    }
                 }
-            }
-
-            //Update signature trails
-            for(int i = 0; i < signatureTrails.Count; i++)
-            {
-                //shift array
-                for (int j = 9; j > 0; j--)
-                {
-                    signatureTrails[i][j] = signatureTrails[i][j - 1];
-                }
-
-                //add new value
-                if (i < positions.Length) { signatureTrails[i][0] = positions[i]; }
+                //Add new car if new signature is found
+                if (!found) Cars.Add(new Car(signatures[i]));
             }
 
             DrawPositions();
@@ -149,18 +162,31 @@ namespace PTT2CarGps
         {
             Graphics Canvas = e.Graphics;
             Random r = new Random(10 );
-            foreach (Point[] trail in signatureTrails)
+            foreach (Car c in Cars)
             {
                 Pen pen = new Pen(Color.FromArgb(r.Next(100,255),r.Next(100,255),r.Next(100,255)));
-                Point pos = trail[0];
+                Point pos = c.Path.GetPositions[c.Path.GetPositions.Count - 1].Location;
                 pos.Offset(-15, -15);
                 Canvas.DrawEllipse
                     (
                         pen,
                         new Rectangle(pos, new Size(30, 30))
                     );
-                Canvas.DrawLines(pen, trail);
-                Canvas.DrawString("ID:" + signatureTrails.IndexOf(trail), DefaultFont, new SolidBrush(Color.White), pos);
+                if (c.Path.GetPoints.Length > 1)
+                {
+                    Canvas.DrawLines(pen, c.Path.GetPoints);
+                    Canvas.DrawLine
+                        (
+                            new Pen(Color.White, 2),
+                            c.Path.GetPositions[c.Path.GetPositions.Count - 1].Location,
+                            new Point
+                            (
+                                c.Path.GetPositions[c.Path.GetPositions.Count - 1].Location.X + c.Path.Speed.X,
+                                c.Path.GetPositions[c.Path.GetPositions.Count - 1].Location.Y + c.Path.Speed.Y
+                            )
+                        );
+                }
+                Canvas.DrawString("ID:" + c.SignatureId, DefaultFont, new SolidBrush(Color.White), pos);
             }
             Canvas.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
         }
